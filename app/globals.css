@@ -99,8 +99,8 @@ a {
   filter: blur(50px);
 
   transition:
-    left 130ms ease-out,
-    top 130ms ease-out;
+    left 50ms ease-out,
+    top 50ms ease-out;
 }
 
 /* =========================================
