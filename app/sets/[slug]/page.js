@@ -1,7 +1,7 @@
-export default function SetPage({ params }) {
+export default function SetPage() {
   return (
-    <div style={{ color: "white", padding: "100px" }}>
-      <pre>{JSON.stringify(params, null, 2)}</pre>
+    <div style={{ color: "red", padding: "100px", fontSize: "40px" }}>
+      TEST 123
     </div>
   );
 }
