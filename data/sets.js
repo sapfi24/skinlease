@@ -1,32 +1,27 @@
 const sets = [
   {
-    slug: "pink",
-    name: "Pink Inventory",
-    tag: "POPULAR",
-    price: "2 000 ₽",
-    duration: "6 дней",
+  slug: "pink",
+  name: "Pink Inventory",
+  tag: "POPULAR",
 
-    description:
-      "Цельный розовый инвентарь в едином стиле. Подходит для тех, кто хочет получить готовый красивый сет без покупки всех предметов за полную стоимость.",
+  price: "3 000 ₽",
+  duration: "6 дней",
+  moneyback: "1 500 ₽",
 
-    value: "≈ 150 000 ₽",
+  description:
+    "Розовый тематический сет CS2 в едином стиле. Готовый инвентарь для аренды без залога.",
 
-    items: [
-      "Предмет 01",
-      "Предмет 02",
-      "Предмет 03",
-      "Предмет 04",
-      "Предмет 05",
-      "Предмет 06"
-    ],
+  value: "≈ 150 000 ₽",
 
-    images: [
-      "/sets/pink/1.jpg",
-      "/sets/pink/2.jpg",
-      "/sets/pink/3.jpg",
-      "/sets/pink/4.jpg"
-    ]
-  },
+  items: [],
+
+  images: [
+    "/sets/pink/1.jpg",
+    "/sets/pink/2.jpg",
+    "/sets/pink/3.jpg",
+    "/sets/pink/4.jpg"
+  ]
+},
 
   {
     slug: "purple",
