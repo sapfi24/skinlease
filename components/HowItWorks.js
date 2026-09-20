@@ -1,51 +1,70 @@
 const steps = [
-  "Выберите понравившийся сет",
-  "Напишите нам в Telegram",
-  "Согласуйте срок и оплату",
-  "Получите готовый инвентарь"
+  {
+    number: "01",
+    title: "Выбираете сет",
+    text: "Открываете каталог и находите подходящий инвентарь.",
+  },
+  {
+    number: "02",
+    title: "Пишете нам",
+    text: "Связываетесь с SkinLease через Telegram.",
+  },
+  {
+    number: "03",
+    title: "Оформляем аренду",
+    text: "Согласовываем срок, стоимость и детали аренды.",
+  },
+  {
+    number: "04",
+    title: "Получаете сет",
+    text: "Получаете готовый инвентарь и можете играть.",
+  },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="section">
+    <section
+      id="how"
+      className="section how-section"
+    >
       <div className="container">
-        <div className="section-head">
+
+        <div className="section-header">
+
           <div>
             <div className="section-kicker">
-              HOW IT WORKS
+              КАК ЭТО РАБОТАЕТ
             </div>
 
-            <h2 className="section-title">
-              Четыре шага до игры
+            <h2>
+              От выбора до игры
+              <br />
+              всего несколько шагов.
             </h2>
           </div>
+
         </div>
 
-        <div className="trust-grid">
-          {steps.map((step, index) => (
-            <div key={step} className="trust-card">
-              <div className="trust-number">
-                0{index + 1}
+        <div className="steps">
+
+          {steps.map((step) => (
+            <div
+              className="step"
+              key={step.number}
+            >
+              <div className="step-line">
+                <span>{step.number}</span>
               </div>
 
-              <h3>{step}</h3>
-
-              <p>
-                {index === 0 &&
-                  "Выберите сет из доступных вариантов."}
-
-                {index === 1 &&
-                  "Свяжитесь с нами для оформления аренды."}
-
-                {index === 2 &&
-                  "Определяем срок аренды и условия."}
-
-                {index === 3 &&
-                  "Получаете полный сет и можете играть."}
-              </p>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
             </div>
           ))}
+
         </div>
+
       </div>
     </section>
   );
