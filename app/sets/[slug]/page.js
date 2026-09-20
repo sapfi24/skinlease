@@ -7,9 +7,7 @@ import SetGallery from "../../../components/SetGallery";
 export default async function SetPage({ params }) {
   const { slug } = await params;
 
-  const set = sets.find(
-    (item) => item.slug === slug
-  );
+  const set = sets.find((item) => item.slug === slug);
 
   if (!set) {
     notFound();
@@ -17,29 +15,21 @@ export default async function SetPage({ params }) {
 
   return (
     <main className="set-page">
-
       <div className="container">
 
-        <Link
-          href="/sets"
-          className="back-link"
-        >
+        <Link href="/sets" className="back-link">
           ← Все сеты
         </Link>
 
         <div className="set-page-grid">
 
-          {/* ГАЛЕРЕЯ */}
+          {/* ФОТО */}
 
           <div className="set-gallery-column">
             <SetGallery
               images={set.images}
               name={set.name}
             />
-
-            <div className="gallery-note">
-              Фотографии показывают внешний вид сета.
-            </div>
           </div>
 
           {/* ИНФОРМАЦИЯ */}
@@ -47,7 +37,6 @@ export default async function SetPage({ params }) {
           <div className="set-details">
 
             <div className="set-detail-top">
-
               <span className="detail-tag">
                 {set.tag}
               </span>
@@ -56,12 +45,9 @@ export default async function SetPage({ params }) {
                 <i />
                 В наличии
               </span>
-
             </div>
 
-            <h1>
-              {set.name}
-            </h1>
+            <h1>{set.name}</h1>
 
             <p className="set-description">
               {set.description}
@@ -71,77 +57,43 @@ export default async function SetPage({ params }) {
 
             <div className="price-card">
 
-              <div>
+              <div className="main-price">
+
                 <span className="price-label">
-                  АРЕНДА
+                  ОПЛАТА ЗА АРЕНДУ
                 </span>
 
                 <div className="price-value">
                   {set.price}
-                  <small>
-                    / {set.duration}
-                  </small>
                 </div>
+
+                <span className="price-period">
+                  за {set.duration}
+                </span>
+
               </div>
 
-              <div className="price-badge">
-                без залога
+              <div className="moneyback">
+
+                <span className="moneyback-label">
+                  МАНИБЭК
+                </span>
+
+                <strong>
+                  1 500 ₽
+                </strong>
+
+                <span className="moneyback-text">
+                  при самостоятельной отмене
+                </span>
+
               </div>
 
             </div>
 
-            {/* USP */}
-
-            <div className="rent-features">
-
-              <div className="rent-feature">
-                <span className="rent-icon">
-                  ✓
-                </span>
-
-                <div>
-                  <strong>
-                    Без залога
-                  </strong>
-
-                  <p>
-                    Дополнительная сумма не требуется
-                  </p>
-                </div>
-              </div>
-
-              <div className="rent-feature">
-                <span className="rent-icon">
-                  →
-                </span>
-
-                <div>
-                  <strong>
-                    Быстрая выдача
-                  </strong>
-
-                  <p>
-                    Оформление через Telegram
-                  </p>
-                </div>
-              </div>
-
-              <div className="rent-feature">
-                <span className="rent-icon">
-                  ◉
-                </span>
-
-                <div>
-                  <strong>
-                    Поддержка
-                  </strong>
-
-                  <p>
-                    Мы остаёмся на связи во время аренды
-                  </p>
-                </div>
-              </div>
-
+            <div className="price-explanation">
+              Вы оплачиваете {set.price}. При самостоятельной
+              отмене аренды вам возвращается 1 500 ₽.
             </div>
 
             {/* КНОПКА */}
@@ -157,8 +109,61 @@ export default async function SetPage({ params }) {
             </a>
 
             <div className="rent-note">
-              Напишите нам в Telegram для проверки
-              доступности и оформления аренды.
+              Без залога · Оформление через Telegram
+            </div>
+
+            {/* ПРЕИМУЩЕСТВА */}
+
+            <div className="rent-features">
+
+              <div className="rent-feature">
+                <span className="rent-icon">
+                  ✓
+                </span>
+
+                <div>
+                  <strong>
+                    Без залога
+                  </strong>
+
+                  <p>
+                    Дополнительный залог не требуется
+                  </p>
+                </div>
+              </div>
+
+              <div className="rent-feature">
+                <span className="rent-icon">
+                  ₽
+                </span>
+
+                <div>
+                  <strong>
+                    Прозрачная цена
+                  </strong>
+
+                  <p>
+                    Стоимость аренды известна заранее
+                  </p>
+                </div>
+              </div>
+
+              <div className="rent-feature">
+                <span className="rent-icon">
+                  @
+                </span>
+
+                <div>
+                  <strong>
+                    Поддержка в Telegram
+                  </strong>
+
+                  <p>
+                    Оформление и связь напрямую
+                  </p>
+                </div>
+              </div>
+
             </div>
 
             {/* СОСТАВ */}
@@ -168,10 +173,11 @@ export default async function SetPage({ params }) {
             <section className="detail-section">
 
               <div className="detail-section-heading">
+
                 <div>
-                  <span className="section-kicker">
+                  <div className="section-kicker">
                     СОСТАВ
-                  </span>
+                  </div>
 
                   <h2>
                     Что входит в сет
@@ -181,6 +187,7 @@ export default async function SetPage({ params }) {
                 <span className="items-count">
                   {set.items.length} предметов
                 </span>
+
               </div>
 
               <div className="items-list">
@@ -208,14 +215,14 @@ export default async function SetPage({ params }) {
 
             </section>
 
-            {/* ХАРАКТЕРИСТИКИ */}
+            {/* ДЕТАЛИ */}
 
             <div className="detail-divider" />
 
             <section className="detail-section">
 
               <div className="section-kicker">
-                ДЕТАЛИ
+                ДЕТАЛИ АРЕНДЫ
               </div>
 
               <div className="stats">
@@ -242,6 +249,16 @@ export default async function SetPage({ params }) {
 
                 <div className="stat">
                   <span>
+                    Манибэк
+                  </span>
+
+                  <strong className="green">
+                    1 500 ₽
+                  </strong>
+                </div>
+
+                <div className="stat">
+                  <span>
                     Формат
                   </span>
 
@@ -259,7 +276,6 @@ export default async function SetPage({ params }) {
         </div>
 
       </div>
-
     </main>
   );
 }
