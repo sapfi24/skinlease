@@ -2,9 +2,12 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-inner">
+
         <a href="/" className="logo">
-          <span className="logo-dot" />
-          SkinLease
+          <img
+            src="/logo.png"
+            alt="SkinLease"
+          />
         </a>
 
         <nav className="nav">
@@ -26,9 +29,10 @@ export default function Header() {
             rel="noreferrer"
             className="nav-button"
           >
-            Telegram
+            Telegram <span>↗</span>
           </a>
         </nav>
+
       </div>
     </header>
   );
