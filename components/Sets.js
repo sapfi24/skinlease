@@ -1,37 +1,5 @@
-const sets = [
-  {
-    number: "01",
-    name: "Pink Inventory",
-    price: "2 000 ₽",
-    period: "6 дней",
-    className: "pink",
-    tag: "POPULAR",
-  },
-  {
-    number: "02",
-    name: "Purple Inventory",
-    price: "2 500 ₽",
-    period: "7 дней",
-    className: "purple",
-    tag: "NEW",
-  },
-  {
-    number: "03",
-    name: "Red Inventory",
-    price: "3 000 ₽",
-    period: "7 дней",
-    className: "red",
-    tag: "LIMITED",
-  },
-  {
-    number: "04",
-    name: "Ice Inventory",
-    price: "2 700 ₽",
-    period: "7 дней",
-    className: "ice",
-    tag: "POPULAR",
-  },
-];
+import Link from "next/link";
+import sets from "../data/sets";
 
 export default function Sets() {
   return (
@@ -53,24 +21,36 @@ export default function Sets() {
             </h2>
           </div>
 
-          <a href="#contact" className="text-link">
+          <Link
+            href="/sets"
+            className="text-link"
+          >
             Все сеты →
-          </a>
+          </Link>
 
         </div>
 
         <div className="sets-grid">
 
-          {sets.map((set) => (
-            <article
-              key={set.number}
-              className={`set-card ${set.className}`}
+          {sets.map((set, index) => (
+            <Link
+              key={set.slug}
+              href={`/sets/${set.slug}`}
+              className={`set-card ${
+                set.slug === "pink"
+                  ? "pink"
+                  : set.slug === "purple"
+                  ? "purple"
+                  : set.slug === "red"
+                  ? "red"
+                  : "ice"
+              }`}
             >
 
               <div className="set-card-top">
 
                 <span className="set-number">
-                  {set.number}
+                  {String(index + 1).padStart(2, "0")}
                 </span>
 
                 <span className="set-tag">
@@ -83,35 +63,37 @@ export default function Sets() {
 
                 <div className="preview-halo" />
 
-                <div className="preview-shape shape-one" />
-                <div className="preview-shape shape-two" />
-                <div className="preview-shape shape-three" />
+                <img
+                  src={set.images[0]}
+                  alt={set.name}
+                  className="set-card-image"
+                />
 
               </div>
 
               <div className="set-card-bottom">
 
                 <div>
-                  <h3>{set.name}</h3>
+                  <h3>
+                    {set.name}
+                  </h3>
 
                   <p>
                     {set.price}
-                    <span> / {set.period}</span>
+                    <span>
+                      {" "}
+                      / {set.duration}
+                    </span>
                   </p>
                 </div>
 
-                <a
-                  href="https://t.me/USERNAME"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="set-arrow"
-                >
+                <div className="set-arrow">
                   →
-                </a>
+                </div>
 
               </div>
 
-            </article>
+            </Link>
           ))}
 
         </div>
