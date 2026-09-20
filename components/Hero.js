@@ -1,35 +1,30 @@
 export default function Hero() {
   return (
     <section className="hero">
-
       <div className="hero-noise" />
 
       <div className="container hero-grid">
 
         <div className="hero-content">
-
           <div className="eyebrow">
             <span />
-            ARENA OF SKINS
+            SKINLEASE
           </div>
 
           <h1>
-            Играй красиво.
+            Аренда сетов CS2
             <br />
-            <span>Плати меньше.</span>
+            <span>без залога.</span>
           </h1>
 
           <p className="hero-description">
-            Готовые сеты CS2 в аренду по выгодным ценам.
-            Без залога и покупки инвентаря за полную стоимость.
+            Готовые инвентари по выгодным ценам.
+            Выбирайте понравившийся сет, оформляйте аренду
+            и играйте без покупки всего инвентаря.
           </p>
 
           <div className="hero-actions">
-
-            <a
-              href="#sets"
-              className="button-primary"
-            >
+            <a href="#sets" className="button-primary">
               Смотреть сеты
               <span>→</span>
             </a>
@@ -40,82 +35,71 @@ export default function Hero() {
               rel="noreferrer"
               className="button-secondary"
             >
-              Telegram
+              Написать в Telegram
               <span>↗</span>
             </a>
-
           </div>
 
           <div className="hero-points">
             <div>
               <strong>Без залога</strong>
-              <span>никаких замороженных денег</span>
+              <span>никаких дополнительных платежей</span>
             </div>
 
             <div>
-              <strong>Выгодные цены</strong>
+              <strong>Лучшие цены</strong>
               <span>платите только за аренду</span>
             </div>
 
             <div>
-              <strong>Готовый сет</strong>
+              <strong>Готовые сеты</strong>
               <span>всё уже собрано за вас</span>
             </div>
           </div>
-
         </div>
 
-        <div className="hero-showcase">
+        <div className="hero-visual-simple">
+          <div className="set-visual">
 
-          <div className="showcase-glow" />
-
-          <div className="showcase-card">
-
-            <div className="showcase-header">
+            <div className="set-visual-top">
               <div>
-                <span className="showcase-label">
-                  FEATURED SET
-                </span>
-
-                <h2>Pink Inventory</h2>
+                <span>PINK COLLECTION</span>
+                <h2>Pink Set</h2>
               </div>
 
-              <div className="available">
+              <div className="set-status">
                 <i />
                 В наличии
               </div>
             </div>
 
-            <div className="showcase-image">
-              <div className="mock-item mock-one" />
-              <div className="mock-item mock-two" />
-              <div className="mock-item mock-three" />
-              <div className="mock-item mock-four" />
-              <div className="mock-item mock-five" />
-              <div className="mock-item mock-six" />
-            </div>
+            <div className="set-photo-placeholder">
+              <div className="photo-glow" />
 
-            <div className="showcase-bottom">
-
-              <div>
-                <span className="price-caption">
-                  АРЕНДА
-                </span>
-
-                <div className="showcase-price">
-                  2 000 ₽
-                  <small>/ 6 дней</small>
-                </div>
+              <div className="photo-label">
+                PREVIEW
               </div>
 
-              <a href="#sets" className="circle-arrow">
-                →
-              </a>
+              <div className="photo-title">
+                PINK
+              </div>
 
+              <div className="photo-line" />
+            </div>
+
+            <div className="set-visual-bottom">
+              <div>
+                <span>АРЕНДА ОТ</span>
+                <strong>2 000 ₽</strong>
+                <small>/ 6 дней</small>
+              </div>
+
+              <a href="#sets" className="set-view-button">
+                Посмотреть →
+              </a>
             </div>
 
           </div>
-
         </div>
 
       </div>
