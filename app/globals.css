@@ -1934,14 +1934,11 @@ a {
 
 .set-page-grid {
   display: grid;
-
   grid-template-columns:
     minmax(0, 1.08fr)
     minmax(420px, 0.92fr);
-
-  align-items: stretch;
-
   gap: 58px;
+  align-items: stretch;
 }
 
 .set-gallery-column {
@@ -1949,6 +1946,15 @@ a {
   align-self: stretch;
 }
 
+.set-gallery {
+  position: sticky;
+  top: 105px;
+  height: fit-content;
+}
+
+.set-details {
+  align-self: start;
+}
 .set-gallery {
   position: sticky;
   top: 105px;
