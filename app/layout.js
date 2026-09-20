@@ -1,21 +1,14 @@
+import "./globals.css";
+
 export const metadata = {
-  title: "SkinLease",
-  description: "Аренда скинов CS2"
+  title: "SkinLease — Аренда сетов CS2",
+  description: "Аренда готовых инвентарей CS2",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
-      <body
-        style={{
-          margin: 0,
-          background: "#090B10",
-          color: "#fff",
-          fontFamily: "Arial, sans-serif"
-        }}
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
