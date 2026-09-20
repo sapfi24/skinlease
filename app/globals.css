@@ -1937,9 +1937,27 @@ a {
 
   grid-template-columns:
     minmax(0, 1.08fr)
-    minmax(380px, 0.92fr);
+    minmax(420px, 0.92fr);
 
-  gap: 70px;
+  align-items: stretch;
+
+  gap: 58px;
+}
+
+.set-gallery-column {
+  min-width: 0;
+  align-self: stretch;
+}
+
+.set-gallery {
+  position: sticky;
+  top: 105px;
+  height: fit-content;
+}
+
+.set-details {
+  align-self: start;
+}
 
   align-items: start;
 }
