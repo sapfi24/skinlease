@@ -13,7 +13,11 @@ const sets = [
 
   value: "≈ 150 000 ₽",
 
-  items: [],
+  items: [
+  "★ Flip Knife | Doppler Phase 2 (Factory New)",
+  "★ Sport Gloves | Vice (Field-Tested)",
+  "Desert Eagle | Mulberry (Minimal Wear)",
+],
 
   images: [
     "/sets/pink/1.jpg",
