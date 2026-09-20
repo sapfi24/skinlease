@@ -1,28 +1,37 @@
 export default function Hero() {
   return (
     <section className="hero">
+
+      <div className="hero-noise" />
+
       <div className="container hero-grid">
+
         <div className="hero-content">
+
           <div className="eyebrow">
-            <span className="eyebrow-line" />
-            SKINLEASE
+            <span />
+            ARENA OF SKINS
           </div>
 
           <h1>
-            Играй с тем,
+            Играй красиво.
             <br />
-            что <span>нравится.</span>
+            <span>Плати меньше.</span>
           </h1>
 
           <p className="hero-description">
-            Аренда готовых тематических инвентарей CS2.
-            Получите полноценный сет без необходимости
-            покупать каждый предмет отдельно.
+            Готовые сеты CS2 в аренду по выгодным ценам.
+            Без залога и покупки инвентаря за полную стоимость.
           </p>
 
           <div className="hero-actions">
-            <a href="#sets" className="button-primary">
+
+            <a
+              href="#sets"
+              className="button-primary"
+            >
               Смотреть сеты
+              <span>→</span>
             </a>
 
             <a
@@ -31,90 +40,84 @@ export default function Hero() {
               rel="noreferrer"
               className="button-secondary"
             >
-              Написать в Telegram
+              Telegram
+              <span>↗</span>
             </a>
+
           </div>
 
-          <div className="hero-meta">
+          <div className="hero-points">
             <div>
-              <strong>Готовые сеты</strong>
-              <br />
-              от нескольких дней
+              <strong>Без залога</strong>
+              <span>никаких замороженных денег</span>
             </div>
 
             <div>
-              <strong>Быстрая выдача</strong>
-              <br />
-              через Telegram
+              <strong>Выгодные цены</strong>
+              <span>платите только за аренду</span>
             </div>
 
             <div>
-              <strong>Поддержка</strong>
-              <br />
-              на протяжении аренды
+              <strong>Готовый сет</strong>
+              <span>всё уже собрано за вас</span>
             </div>
           </div>
+
         </div>
 
-        <div className="hero-visual">
-          <div className="visual-glow" />
+        <div className="hero-showcase">
 
-          <div className="set-showcase">
-            <div className="showcase-top">
+          <div className="showcase-glow" />
+
+          <div className="showcase-card">
+
+            <div className="showcase-header">
               <div>
-                <div className="showcase-label">FEATURED SET</div>
-                <div className="showcase-title">
-                  Pink Inventory
-                </div>
+                <span className="showcase-label">
+                  FEATURED SET
+                </span>
+
+                <h2>Pink Inventory</h2>
               </div>
 
-              <div className="live-pill">
+              <div className="available">
                 <i />
-                AVAILABLE
+                В наличии
               </div>
             </div>
 
-            <div className="inventory-preview">
-              <div className="item-card item-pink">
-                <div className="item-name">ITEM 01</div>
-              </div>
-
-              <div className="item-card item-purple">
-                <div className="item-name">ITEM 02</div>
-              </div>
-
-              <div className="item-card item-ice">
-                <div className="item-name">ITEM 03</div>
-              </div>
-
-              <div className="item-card item-purple">
-                <div className="item-name">ITEM 04</div>
-              </div>
-
-              <div className="item-card item-ice">
-                <div className="item-name">ITEM 05</div>
-              </div>
-
-              <div className="item-card item-pink">
-                <div className="item-name">ITEM 06</div>
-              </div>
+            <div className="showcase-image">
+              <div className="mock-item mock-one" />
+              <div className="mock-item mock-two" />
+              <div className="mock-item mock-three" />
+              <div className="mock-item mock-four" />
+              <div className="mock-item mock-five" />
+              <div className="mock-item mock-six" />
             </div>
 
             <div className="showcase-bottom">
-              <div>
-                <div className="price-label">АРЕНДА ОТ</div>
 
-                <div className="price">
-                  2 000 ₽ <span>/ 6 дней</span>
+              <div>
+                <span className="price-caption">
+                  АРЕНДА
+                </span>
+
+                <div className="showcase-price">
+                  2 000 ₽
+                  <small>/ 6 дней</small>
                 </div>
               </div>
 
-              <a href="#sets" className="view-set">
-                Смотреть сет →
+              <a href="#sets" className="circle-arrow">
+                →
               </a>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
     </section>
   );
