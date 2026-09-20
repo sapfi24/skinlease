@@ -3,36 +3,76 @@
 import { useState } from "react";
 
 export default function SetGallery({ images, name }) {
-  const [activeImage, setActiveImage] = useState(0);
-  const [fullscreen, setFullscreen] = useState(false);
+  const [active, setActive] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const next = () => {
+    setActive((current) =>
+      current === images.length - 1 ? 0 : current + 1
+    );
+  };
+
+  const previous = () => {
+    setActive((current) =>
+      current === 0 ? images.length - 1 : current - 1
+    );
+  };
 
   return (
     <>
       <div className="set-gallery">
 
-        <div
-          className="gallery-main"
-          onClick={() => setFullscreen(true)}
-        >
+        <div className="gallery-main">
+
           <img
-            src={images[activeImage]}
-            alt={`${name} — фото ${activeImage + 1}`}
+            src={images[active]}
+            alt={`${name} — изображение ${active + 1}`}
+            onClick={() => setIsOpen(true)}
           />
 
-          <div className="gallery-expand">
+          <button
+            type="button"
+            className="gallery-arrow gallery-arrow-left"
+            onClick={previous}
+            aria-label="Предыдущее фото"
+          >
+            ←
+          </button>
+
+          <button
+            type="button"
+            className="gallery-arrow gallery-arrow-right"
+            onClick={next}
+            aria-label="Следующее фото"
+          >
+            →
+          </button>
+
+          <button
+            type="button"
+            className="gallery-expand"
+            onClick={() => setIsOpen(true)}
+            aria-label="Открыть изображение"
+          >
             ⤢
+          </button>
+
+          <div className="gallery-counter">
+            {active + 1} / {images.length}
           </div>
+
         </div>
 
         <div className="gallery-thumbs">
+
           {images.map((image, index) => (
             <button
-              key={image}
               type="button"
+              key={image}
               className={`gallery-thumb ${
-                activeImage === index ? "active" : ""
+                active === index ? "active" : ""
               }`}
-              onClick={() => setActiveImage(index)}
+              onClick={() => setActive(index)}
             >
               <img
                 src={image}
@@ -40,28 +80,56 @@ export default function SetGallery({ images, name }) {
               />
             </button>
           ))}
+
+        </div>
+
+        <div className="gallery-hint">
+          Используйте стрелки или миниатюры для просмотра
         </div>
 
       </div>
 
-      {fullscreen && (
+      {isOpen && (
         <div
           className="gallery-modal"
-          onClick={() => setFullscreen(false)}
+          onClick={() => setIsOpen(false)}
         >
           <button
             type="button"
             className="gallery-close"
-            onClick={() => setFullscreen(false)}
+            onClick={() => setIsOpen(false)}
           >
             ×
           </button>
 
+          <button
+            type="button"
+            className="gallery-modal-arrow left"
+            onClick={(event) => {
+              event.stopPropagation();
+              previous();
+            }}
+          >
+            ←
+          </button>
+
           <img
-            src={images[activeImage]}
+            src={images[active]}
             alt={name}
             onClick={(event) => event.stopPropagation()}
           />
+
+          <button
+            type="button"
+            className="gallery-modal-arrow right"
+            onClick={(event) => {
+              event.stopPropagation();
+              next();
+            }}
+          >
+            →
+          </button>
+
         </div>
       )}
     </>
