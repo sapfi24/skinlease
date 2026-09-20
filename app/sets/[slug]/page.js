@@ -1,3 +1,18 @@
+function getItemsText(count) {
+  if (count % 10 === 1 && count % 100 !== 11) {
+    return `${count} предмет`;
+  }
+
+  if (
+    [2, 3, 4].includes(count % 10) &&
+    ![12, 13, 14].includes(count % 100)
+  ) {
+    return `${count} предмета`;
+  }
+
+  return `${count} предметов`;
+}
+
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -185,7 +200,7 @@ export default async function SetPage({ params }) {
                 </div>
 
                 <span className="items-count">
-                  {set.items.length} предметов
+                  {getItemsText(set.items.length)}
                 </span>
 
               </div>
