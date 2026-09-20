@@ -7,13 +7,17 @@ import CTA from "../components/CTA";
 export default function Home() {
   return (
     <>
+
       <div className="site-background" />
 
-      <Hero />
-      <Sets />
-      <Advantages />
-      <HowItWorks />
-      <CTA />
+      <main>
+        <Hero />
+        <Sets />
+        <Advantages />
+        <HowItWorks />
+        <CTA />
+      </main>
+
     </>
   );
 }
