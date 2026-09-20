@@ -1,61 +1,77 @@
 const advantages = [
   {
     number: "01",
-    title: "Готовый сет",
-    text: "Не нужно собирать инвентарь по отдельным предметам."
+    title: "Без залога",
+    text: "Для аренды не нужно оставлять дополнительную сумму в качестве залога.",
   },
   {
     number: "02",
-    title: "Быстрая выдача",
-    text: "Связались в Telegram — согласовали аренду — получили сет."
+    title: "Выгодные цены",
+    text: "Получаете готовый инвентарь на нужный срок без покупки его полной стоимости.",
   },
   {
     number: "03",
-    title: "Гибкий срок",
-    text: "Выбирайте срок аренды под свои задачи."
+    title: "Готовые сеты",
+    text: "Каждый сет уже собран в едином стиле. Вы просто выбираете понравившийся.",
   },
   {
     number: "04",
     title: "Поддержка",
-    text: "Остаёмся на связи на протяжении всей аренды."
-  }
+    text: "Оформление и связь происходят напрямую через Telegram.",
+  },
 ];
 
 export default function Advantages() {
   return (
-    <section id="advantages" className="section">
+    <section
+      id="advantages"
+      className="section"
+    >
       <div className="container">
-        <div className="section-head">
+
+        <div className="section-header">
           <div>
             <div className="section-kicker">
-              WHY SKINLEASE
+              ПОЧЕМУ SKINLEASE
             </div>
 
-            <h2 className="section-title">
-              Всё просто.
+            <h2>
+              Всё, что нужно
+              <br />
+              для простой аренды.
             </h2>
           </div>
 
-          <p className="section-text">
-            SkinLease создан вокруг одной идеи —
-            сделать аренду готового инвентаря
-            максимально понятной.
+          <p>
+            Никаких сложных схем.
+            Выбираете сет, связываетесь с нами
+            и получаете готовый инвентарь.
           </p>
         </div>
 
-        <div className="trust-grid">
+        <div className="advantages-grid">
+
           {advantages.map((item) => (
-            <div key={item.number} className="trust-card">
-              <div className="trust-number">
+            <article
+              className="advantage-card"
+              key={item.number}
+            >
+              <div className="advantage-number">
                 {item.number}
               </div>
 
               <h3>{item.title}</h3>
 
               <p>{item.text}</p>
-            </div>
+
+              <span className="advantage-arrow">
+                →
+              </span>
+            </article>
           ))}
+
         </div>
+
       </div>
     </section>
   );
