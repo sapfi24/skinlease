@@ -17,6 +17,12 @@ const sets = [
   "★ Flip Knife | Doppler Phase 2 (Factory New)",
   "★ Sport Gloves | Vice (Field-Tested)",
   "Desert Eagle | Mulberry (Minimal Wear)",
+    "★ Flip Knife | Doppler Phase 2 (Factory New)",
+  "★ Sport Gloves | Vice (Field-Tested)",
+  "Desert Eagle | Mulberry (Minimal Wear)",
+    "★ Flip Knife | Doppler Phase 2 (Factory New)",
+  "★ Sport Gloves | Vice (Field-Tested)",
+  "Desert Eagle | Mulberry (Minimal Wear)",
 ],
 
   images: [
