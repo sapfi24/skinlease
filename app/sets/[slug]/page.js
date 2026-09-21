@@ -43,19 +43,23 @@ export default async function SetPage({ params }) {
 
           <div className="set-gallery-column">
 
-            <Link
-              href="/sets"
-              className="back-link"
-            >
-              ← Все сеты
-            </Link>
+  <div className="gallery-sticky">
 
-            <SetGallery
-              images={set.images}
-              name={set.name}
-            />
+    <Link
+      href="/sets"
+      className="back-link"
+    >
+      ← Все сеты
+    </Link>
 
-          </div>
+    <SetGallery
+      images={set.images}
+      name={set.name}
+    />
+
+  </div>
+
+</div>
 
           {/* =========================
               ИНФОРМАЦИЯ
