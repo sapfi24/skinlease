@@ -4466,3 +4466,354 @@ a {
     max-height: none !important;
   }
 }
+/* =========================================
+   FINAL SET PAGE LAYOUT
+========================================= */
+
+.set-page {
+  position: relative !important;
+  z-index: 1 !important;
+  padding: 135px 0 120px !important;
+}
+
+.set-page-grid {
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(400px, 0.95fr) !important;
+
+  align-items: start !important;
+
+  gap: 55px !important;
+}
+
+/* ---------- LEFT ---------- */
+
+.set-left {
+  min-width: 0 !important;
+  align-self: start !important;
+}
+
+.set-left .back-link {
+  margin-bottom: 18px !important;
+}
+
+/* Полностью убираем sticky */
+
+.set-left .set-gallery,
+.set-left .gallery-sticky,
+.set-gallery-column,
+.set-gallery {
+  position: static !important;
+  top: auto !important;
+  height: auto !important;
+}
+
+/* Главная фотография */
+
+.set-left .gallery-main {
+  width: 100% !important;
+
+  aspect-ratio: 1.38 / 1 !important;
+
+  border-radius: 24px !important;
+}
+
+/* Миниатюры */
+
+.set-left .gallery-thumbs {
+  margin-top: 10px !important;
+
+  gap: 9px !important;
+}
+
+.set-left .gallery-thumb {
+  min-height: 82px !important;
+}
+
+/* ---------- RENT DETAILS UNDER PHOTO ---------- */
+
+.rent-details-card {
+  margin-top: 14px !important;
+
+  padding: 24px !important;
+
+  border-radius: 20px !important;
+
+  border: 1px solid rgba(255,255,255,0.07) !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.028),
+      rgba(255,255,255,0.014)
+    ) !important;
+}
+
+.rent-details-header {
+  margin-bottom: 14px !important;
+}
+
+.rent-details-header h2 {
+  margin: 0 !important;
+
+  font-size: 25px !important;
+
+  letter-spacing: -0.04em !important;
+}
+
+.rent-detail-row {
+  min-height: 53px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  gap: 20px !important;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,0.055) !important;
+}
+
+.rent-detail-row span {
+  color: #747f8a !important;
+
+  font-size: 12px !important;
+}
+
+.rent-detail-row strong {
+  color: #e7ecef !important;
+
+  font-size: 13px !important;
+
+  text-align: right !important;
+}
+
+.rent-detail-row strong.green {
+  color: #00d084 !important;
+}
+
+.rent-detail-note {
+  margin-top: 13px !important;
+
+  padding-top: 13px !important;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,0.055) !important;
+
+  color: #66727d !important;
+
+  font-size: 11px !important;
+
+  line-height: 1.55 !important;
+}
+
+/* ---------- RIGHT ---------- */
+
+.set-details {
+  min-width: 0 !important;
+
+  align-self: start !important;
+}
+
+.set-details h1 {
+  font-size:
+    clamp(52px, 5vw, 72px) !important;
+
+  line-height: 0.94 !important;
+
+  letter-spacing: -0.065em !important;
+}
+
+.set-description {
+  max-width: 610px !important;
+
+  margin-top: 22px !important;
+
+  font-size: 16px !important;
+
+  line-height: 1.7 !important;
+}
+
+/* ---------- PRICE ---------- */
+
+.price-card {
+  margin-top: 30px !important;
+
+  min-height: 135px !important;
+
+  grid-template-columns:
+    1fr 1fr !important;
+}
+
+.price-value {
+  font-size: 39px !important;
+}
+
+.moneyback strong {
+  font-size: 31px !important;
+}
+
+.price-explanation {
+  margin-top: 9px !important;
+
+  font-size: 11px !important;
+
+  line-height: 1.55 !important;
+}
+
+/* ---------- BUTTON ---------- */
+
+.rent-button {
+  min-height: 59px !important;
+
+  margin-top: 14px !important;
+
+  font-size: 15px !important;
+}
+
+/* ---------- FEATURES ---------- */
+
+.rent-features {
+  margin-top: 13px !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(3, 1fr) !important;
+
+  gap: 8px !important;
+}
+
+.rent-feature {
+  min-height: 105px !important;
+
+  padding: 13px !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: flex-start !important;
+
+  justify-content: flex-start !important;
+
+  gap: 9px !important;
+}
+
+.rent-feature strong {
+  font-size: 12px !important;
+}
+
+.rent-feature p {
+  margin-top: 4px !important;
+
+  font-size: 10px !important;
+
+  line-height: 1.4 !important;
+}
+
+/* ---------- COMPOSITION ---------- */
+
+.detail-divider {
+  margin: 30px 0 !important;
+}
+
+.detail-section-heading {
+  margin-bottom: 17px !important;
+}
+
+.detail-section-heading h2 {
+  font-size: 25px !important;
+}
+
+.items-count {
+  font-size: 13px !important;
+}
+
+.inventory-item {
+  min-height: 62px !important;
+}
+
+.inventory-item strong {
+  font-size: 14px !important;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 950px) {
+  .set-page-grid {
+    grid-template-columns: 1fr !important;
+
+    gap: 35px !important;
+  }
+
+  .set-left,
+  .set-gallery-column,
+  .set-gallery {
+    position: static !important;
+  }
+
+  .rent-features {
+    grid-template-columns: 1fr !important;
+  }
+
+  .rent-feature {
+    min-height: 64px !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .set-page {
+    padding:
+      110px
+      0
+      80px !important;
+  }
+
+  .set-page-grid {
+    gap: 28px !important;
+  }
+
+  .set-left .gallery-main {
+    aspect-ratio: 1.15 / 1 !important;
+
+    border-radius: 19px !important;
+  }
+
+  .rent-details-card {
+    padding: 19px !important;
+  }
+
+  .set-details h1 {
+    font-size: 46px !important;
+  }
+
+  .price-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .main-price {
+    border-right: 0 !important;
+
+    border-bottom:
+      1px solid
+      rgba(255,255,255,0.06) !important;
+  }
+
+  .price-value {
+    font-size: 31px !important;
+  }
+
+  .moneyback strong {
+    font-size: 28px !important;
+  }
+}
