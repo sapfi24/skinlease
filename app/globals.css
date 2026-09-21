@@ -3985,3 +3985,224 @@ a {
     font-size: 9px;
   }
 }
+/* =========================================
+   FINAL SET PAGE OVERRIDES
+   Эти правила должны находиться в самом низу файла
+========================================= */
+
+/* Галерея не должна уезжать, пока справа есть контент */
+.set-page-grid {
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 1.12fr)
+    minmax(420px, 0.88fr) !important;
+
+  align-items: stretch !important;
+
+  gap: 55px !important;
+}
+
+.set-gallery-column {
+  min-width: 0 !important;
+  align-self: stretch !important;
+}
+
+.set-gallery {
+  position: sticky !important;
+  top: 105px !important;
+  height: fit-content !important;
+}
+
+/* Убираем текстовые подсказки под фото */
+.gallery-hint,
+.gallery-note {
+  display: none !important;
+}
+
+/* Основная фотография */
+.gallery-main {
+  aspect-ratio: 1.3 / 1 !important;
+}
+
+/* Миниатюры */
+.gallery-thumbs {
+  gap: 10px !important;
+}
+
+.gallery-thumb {
+  min-height: 88px !important;
+}
+
+/* Название */
+.set-details h1 {
+  font-size: clamp(54px, 5vw, 74px) !important;
+  line-height: 0.94 !important;
+  letter-spacing: -0.065em !important;
+}
+
+/* Описание */
+.set-description {
+  max-width: 620px !important;
+
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+}
+
+/* Метка и наличие */
+.detail-tag {
+  font-size: 10px !important;
+}
+
+.detail-available {
+  font-size: 12px !important;
+}
+
+/* Ценовой блок */
+.price-card {
+  min-height: 135px !important;
+
+  grid-template-columns: 1fr 1fr !important;
+}
+
+.price-label,
+.moneyback-label {
+  font-size: 10px !important;
+}
+
+.price-value {
+  font-size: 39px !important;
+  line-height: 1 !important;
+}
+
+.price-period {
+  font-size: 12px !important;
+}
+
+.moneyback strong {
+  font-size: 30px !important;
+}
+
+.moneyback-text {
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+.price-explanation {
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+
+  color: #747f8a !important;
+}
+
+/* Функциональные карточки */
+.rent-feature {
+  min-height: 64px !important;
+
+  padding: 14px !important;
+}
+
+.rent-feature strong {
+  font-size: 13px !important;
+}
+
+.rent-feature p {
+  font-size: 11px !important;
+}
+
+/* Основная кнопка */
+.rent-button {
+  min-height: 59px !important;
+  font-size: 15px !important;
+}
+
+/* Заголовок состава */
+.detail-section-heading h2,
+.detail-section h2 {
+  font-size: 25px !important;
+}
+
+/* Количество предметов */
+.items-count {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+/* Строки предметов */
+.inventory-item {
+  min-height: 62px !important;
+}
+
+.inventory-item > span:first-child {
+  font-size: 11px !important;
+}
+
+.inventory-item strong {
+  font-size: 14px !important;
+}
+
+.item-check {
+  font-size: 13px !important;
+}
+
+/* Детали аренды */
+.stat {
+  min-height: 56px !important;
+
+  padding: 15px 17px !important;
+}
+
+.stat span {
+  font-size: 12px !important;
+}
+
+.stat strong {
+  font-size: 13px !important;
+}
+
+/* Немного уменьшаем вертикальные разрывы */
+.detail-divider {
+  margin: 30px 0 !important;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 950px) {
+  .set-page-grid {
+    grid-template-columns: 1fr !important;
+    gap: 45px !important;
+  }
+
+  .set-gallery {
+    position: static !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .price-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .main-price {
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  .set-details h1 {
+    font-size: 47px !important;
+  }
+
+  .price-value {
+    font-size: 31px !important;
+  }
+
+  .moneyback strong {
+    font-size: 28px !important;
+  }
+
+  .gallery-main {
+    aspect-ratio: 1.15 / 1 !important;
+  }
+}
