@@ -2241,18 +2241,21 @@ a {
   font-size: 11px;
 }
 
-.detail-available i {
-  width: 6px;
-  height: 6px;
+.detail-available {
+  display: inline-flex;
+  align-items: center;
 
-  display: block;
+  padding: 7px 12px;
 
-  border-radius: 50%;
+  border-radius: 999px;
 
-  background: #00d084;
+  font-size: 12px;
+  font-weight: 700;
 
-  box-shadow:
-    0 0 12px rgba(0,208,132,0.75);
+  background: rgba(0,208,132,0.12);
+  border: 1px solid rgba(0,208,132,0.25);
+
+  color: #00d084;
 }
 
 .set-details h1 {
