@@ -4242,3 +4242,161 @@ a {
     position: static !important;
   }
 }
+/* =========================================
+   FINAL SET PAGE SCROLL FIX
+   Полностью убираем sticky
+========================================= */
+
+.set-page-grid {
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(400px, 0.9fr) !important;
+
+  align-items: start !important;
+
+  gap: 52px !important;
+}
+
+.set-gallery-column {
+  position: static !important;
+  top: auto !important;
+
+  align-self: start !important;
+
+  min-width: 0 !important;
+}
+
+.set-gallery {
+  position: static !important;
+  top: auto !important;
+  height: auto !important;
+}
+
+/* Ссылка скроллится вместе с фотографией */
+.back-link {
+  margin-bottom: 18px !important;
+}
+
+/* Большая фотография */
+.gallery-main {
+  aspect-ratio: 1.35 / 1 !important;
+}
+
+/* =========================================
+   Делаем правую колонку компактнее
+========================================= */
+
+.rent-features {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(3, 1fr) !important;
+
+  gap: 8px !important;
+}
+
+.rent-feature {
+  min-height: 105px !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: flex-start !important;
+
+  justify-content: flex-start !important;
+
+  gap: 9px !important;
+
+  padding: 13px !important;
+}
+
+.rent-feature > div {
+  min-width: 0;
+}
+
+.rent-feature strong {
+  font-size: 12px !important;
+}
+
+.rent-feature p {
+  margin-top: 4px !important;
+
+  font-size: 10px !important;
+
+  line-height: 1.4 !important;
+}
+
+.rent-icon {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+/* =========================================
+   Детали аренды компактнее
+========================================= */
+
+.stats {
+  display: grid !important;
+
+  grid-template-columns:
+    1fr 1fr !important;
+
+  gap: 8px !important;
+}
+
+.stat {
+  min-height: 58px !important;
+}
+
+/* =========================================
+   Меньше лишнего вертикального пространства
+========================================= */
+
+.detail-divider {
+  margin: 28px 0 !important;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 950px) {
+  .set-page-grid {
+    grid-template-columns: 1fr !important;
+
+    gap: 40px !important;
+  }
+
+  .set-gallery-column {
+    position: static !important;
+  }
+
+  .rent-features {
+    grid-template-columns: 1fr !important;
+  }
+
+  .rent-feature {
+    min-height: 64px !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+  }
+
+  .stats {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .set-page-grid {
+    gap: 30px !important;
+  }
+
+  .gallery-main {
+    aspect-ratio: 1.15 / 1 !important;
+  }
+}
