@@ -4206,3 +4206,39 @@ a {
     aspect-ratio: 1.15 / 1 !important;
   }
 }
+/* =========================================
+   SET PAGE — STABLE LEFT COLUMN
+========================================= */
+
+.set-page-grid {
+  align-items: start !important;
+}
+
+.set-gallery-column {
+  position: sticky !important;
+  top: 105px !important;
+
+  align-self: start !important;
+
+  height: fit-content !important;
+}
+
+.set-gallery {
+  position: static !important;
+  top: auto !important;
+  height: auto !important;
+}
+
+.back-link {
+  display: inline-flex !important;
+
+  margin-bottom: 18px !important;
+}
+
+/* На планшете и телефоне ничего не фиксируем */
+
+@media (max-width: 950px) {
+  .set-gallery-column {
+    position: static !important;
+  }
+}
