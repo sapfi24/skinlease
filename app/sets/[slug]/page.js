@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import sets from "../../../data/sets";
 import SetGallery from "../../../components/SetGallery";
+import ItemsList from "../../../components/ItemsList";
 
 function getItemsText(count) {
   if (count % 10 === 1 && count % 100 !== 11) {
