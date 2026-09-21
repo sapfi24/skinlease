@@ -293,30 +293,7 @@ export default async function SetPage({ params }) {
 
                   </div>
 
-                  <div className="items-list">
-
-                    {items.map((item, index) => (
-                      <div
-                        className="inventory-item"
-                        key={`${item}-${index}`}
-                      >
-
-                        <span>
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-
-                        <strong>
-                          {item}
-                        </strong>
-
-                        <span className="item-check">
-                          ✓
-                        </span>
-
-                      </div>
-                    ))}
-
-                  </div>
+                 <ItemsList items={items} />
 
                 </section>
               </>
