@@ -1903,10 +1903,8 @@ a {
 .set-page {
   position: relative;
   z-index: 1;
-  padding:
-    135px
-    0
-    120px;
+
+  padding: 135px 0 120px;
 }
 
 .back-link {
@@ -1934,10 +1932,13 @@ a {
 
 .set-page-grid {
   display: grid;
+
   grid-template-columns:
     minmax(0, 1.08fr)
     minmax(420px, 0.92fr);
+
   gap: 58px;
+
   align-items: stretch;
 }
 
@@ -1954,18 +1955,6 @@ a {
 
 .set-details {
   align-self: start;
-}
-.set-gallery {
-  position: sticky;
-  top: 105px;
-  height: fit-content;
-}
-
-.set-details {
-  align-self: start;
-}
-
-  align-items: stretch;
 }
 
 /* ---------- Gallery ---------- */
