@@ -1,71 +1,37 @@
-import Link from "next/link";
 import sets from "../../data/sets";
+import SetCard from "../../components/SetCard";
 
 export default function SetsPage() {
   return (
-    <main className="catalog-page">
-
+    <main className="sets-page">
       <div className="container">
 
-        <div className="catalog-head">
-          <div>
-            <div className="section-kicker">
-              SKINLEASE
-            </div>
+        <div className="sets-page-header">
+          <span className="section-kicker">
+            КАТАЛОГ
+          </span>
 
-            <h1>
-              Все сеты
-            </h1>
+          <h1>
+            Все сеты
+          </h1>
 
-            <p>
-              Готовые инвентари CS2 в аренду
-              без залога.
-            </p>
-          </div>
+          <p>
+            Выберите готовый инвентарь CS2
+            для аренды без залога.
+          </p>
         </div>
 
-        <div className="catalog-grid">
-
-          {sets.map((set) => (
-            <Link
+        <div className="hud-sets-grid">
+          {sets.map((set, index) => (
+            <SetCard
               key={set.slug}
-              href={`/sets/${set.slug}`}
-              className="catalog-card"
-            >
-              <div className="catalog-image">
-                <img
-                  src={set.images[0]}
-                  alt={set.name}
-                />
-
-                <span className="catalog-tag">
-                  {set.tag}
-                </span>
-              </div>
-
-              <div className="catalog-info">
-
-                <div>
-                  <h2>{set.name}</h2>
-
-                  <p>
-                    {set.price}
-                    <span> / {set.duration}</span>
-                  </p>
-                </div>
-
-                <div className="catalog-arrow">
-                  →
-                </div>
-
-              </div>
-            </Link>
+              set={set}
+              index={index}
+            />
           ))}
-
         </div>
 
       </div>
-
     </main>
   );
 }

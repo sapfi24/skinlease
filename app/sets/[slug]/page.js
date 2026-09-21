@@ -20,6 +20,22 @@ function getItemsText(count) {
   return `${count} предметов`;
 }
 
+function getStatusText(status) {
+  switch (status) {
+    case "available":
+      return "Доступен";
+
+    case "rented":
+      return "В аренде";
+
+    case "tradeban":
+      return "Трейд бан";
+
+    default:
+      return status || "Доступен";
+  }
+}
+
 export default async function SetPage({ params }) {
   const { slug } = await params;
 
@@ -93,13 +109,8 @@ export default async function SetPage({ params }) {
               </div>
 
               <div className="rent-detail-row">
-                <span>
-                  Залог
-                </span>
-
-                <strong className="green">
-                  0 ₽
-                </strong>
+                <span>Стоимость сета (включая скины) </span>
+                 <strong>{set.value || "—"}</strong>
               </div>
 
               <div className="rent-detail-row">
@@ -113,8 +124,8 @@ export default async function SetPage({ params }) {
               </div>
 
               <div className="rent-detail-note">
-                При самостоятельной отмене аренды вам
-                возвращается {moneyback}.
+                При самостоятельной отмене трейда вам
+                возвращается {moneyback}
               </div>
 
             </section>
@@ -133,9 +144,10 @@ export default async function SetPage({ params }) {
                 {set.tag}
               </span>
 
-              <span className="detail-available">
-                <i />
-                В наличии
+              <span
+                className={`detail-available status-${set.status || "available"}`}
+              >
+                {getStatusText(set.status)}
               </span>
 
             </div>
@@ -148,7 +160,9 @@ export default async function SetPage({ params }) {
               {set.description}
             </p>
 
-            {/* ЦЕНА */}
+            {/* =========================
+                ЦЕНА
+            ========================== */}
 
             <div className="price-card">
 
@@ -188,10 +202,12 @@ export default async function SetPage({ params }) {
 
             <div className="price-explanation">
               Вы оплачиваете {set.price}. При самостоятельной
-              отмене аренды вам возвращается {moneyback}.
+              отмене трейда вам возвращается {moneyback}
             </div>
 
-            {/* КНОПКА */}
+            {/* =========================
+                КНОПКА
+            ========================== */}
 
             <a
               href="https://t.me/USERNAME"
@@ -207,7 +223,9 @@ export default async function SetPage({ params }) {
               Без залога · Оформление через Telegram
             </div>
 
-            {/* ПРЕИМУЩЕСТВА */}
+            {/* =========================
+                ПРЕИМУЩЕСТВА
+            ========================== */}
 
             <div className="rent-features">
 
@@ -237,11 +255,11 @@ export default async function SetPage({ params }) {
 
                 <div>
                   <strong>
-                    Прозрачная цена
+                    Лучшая цена
                   </strong>
 
                   <p>
-                    Стоимость аренды известна заранее
+                    Мы предлагаем лучшие цены на аренду сетов
                   </p>
                 </div>
 
@@ -267,7 +285,9 @@ export default async function SetPage({ params }) {
 
             </div>
 
-            {/* СОСТАВ */}
+            {/* =========================
+                СОСТАВ
+            ========================== */}
 
             {items.length > 0 && (
               <>
@@ -293,7 +313,7 @@ export default async function SetPage({ params }) {
 
                   </div>
 
-                 <ItemsList items={items} />
+                  <ItemsList items={items} />
 
                 </section>
               </>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SetGallery({ images, name }) {
   const [active, setActive] = useState(0);
@@ -18,10 +18,36 @@ export default function SetGallery({ images, name }) {
     );
   };
 
+  // Закрытие модального окна по Escape
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+
+      if (event.key === "ArrowRight") {
+        next();
+      }
+
+      if (event.key === "ArrowLeft") {
+        previous();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
   return (
     <>
       <div className="set-gallery">
 
+        {/* Основное изображение */}
         <div className="gallery-main">
 
           <img
@@ -63,12 +89,13 @@ export default function SetGallery({ images, name }) {
 
         </div>
 
+        {/* Миниатюры */}
         <div className="gallery-thumbs">
 
           {images.map((image, index) => (
             <button
               type="button"
-              key={image}
+              key={`${image}-${index}`}
               className={`gallery-thumb ${
                 active === index ? "active" : ""
               }`}
@@ -83,25 +110,16 @@ export default function SetGallery({ images, name }) {
 
         </div>
 
-        <div className="gallery-hint">
-          Используйте стрелки или миниатюры для просмотра
-        </div>
-
       </div>
 
+      {/* Полноэкранная галерея */}
       {isOpen && (
         <div
           className="gallery-modal"
           onClick={() => setIsOpen(false)}
         >
-          <button
-            type="button"
-            className="gallery-close"
-            onClick={() => setIsOpen(false)}
-          >
-            ×
-          </button>
 
+          {/* Предыдущее фото */}
           <button
             type="button"
             className="gallery-modal-arrow left"
@@ -109,16 +127,21 @@ export default function SetGallery({ images, name }) {
               event.stopPropagation();
               previous();
             }}
+            aria-label="Предыдущее фото"
           >
             ←
           </button>
 
+          {/* Изображение */}
           <img
             src={images[active]}
             alt={name}
-            onClick={(event) => event.stopPropagation()}
+            onClick={(event) => {
+              event.stopPropagation();
+            }}
           />
 
+          {/* Следующее фото */}
           <button
             type="button"
             className="gallery-modal-arrow right"
@@ -126,8 +149,22 @@ export default function SetGallery({ images, name }) {
               event.stopPropagation();
               next();
             }}
+            aria-label="Следующее фото"
           >
             →
+          </button>
+
+          {/* Крестик */}
+          <button
+            type="button"
+            className="gallery-close"
+            onClick={(event) => {
+              event.stopPropagation();
+              setIsOpen(false);
+            }}
+            aria-label="Закрыть"
+          >
+            ×
           </button>
 
         </div>
