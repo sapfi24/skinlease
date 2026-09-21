@@ -28,8 +28,8 @@ export default async function SetPage({ params }) {
     notFound();
   }
 
-  const moneyback = set.moneyback || "1 500 ₽";
   const items = Array.isArray(set.items) ? set.items : [];
+  const moneyback = set.moneyback || "1 500 ₽";
 
   return (
     <main className="set-page">
@@ -38,31 +38,90 @@ export default async function SetPage({ params }) {
         <div className="set-page-grid">
 
           {/* =========================
-              ГАЛЕРЕЯ
+              ЛЕВАЯ КОЛОНКА
           ========================== */}
 
-          <div className="set-gallery-column">
+          <div className="set-left">
 
-  <div className="gallery-sticky">
+            <Link
+              href="/sets"
+              className="back-link"
+            >
+              ← Все сеты
+            </Link>
 
-    <Link
-      href="/sets"
-      className="back-link"
-    >
-      ← Все сеты
-    </Link>
+            <SetGallery
+              images={set.images}
+              name={set.name}
+            />
 
-    <SetGallery
-      images={set.images}
-      name={set.name}
-    />
+            {/* ДЕТАЛИ АРЕНДЫ ПОД ФОТО */}
 
-  </div>
+            <section className="rent-details-card">
 
-</div>
+              <div className="rent-details-header">
+                <div>
+                  <div className="section-kicker">
+                    ДЕТАЛИ АРЕНДЫ
+                  </div>
+
+                  <h2>
+                    Условия
+                  </h2>
+                </div>
+              </div>
+
+              <div className="rent-detail-row">
+                <span>
+                  Стоимость аренды
+                </span>
+
+                <strong>
+                  {set.price}
+                </strong>
+              </div>
+
+              <div className="rent-detail-row">
+                <span>
+                  Срок аренды
+                </span>
+
+                <strong>
+                  {set.duration}
+                </strong>
+              </div>
+
+              <div className="rent-detail-row">
+                <span>
+                  Залог
+                </span>
+
+                <strong className="green">
+                  0 ₽
+                </strong>
+              </div>
+
+              <div className="rent-detail-row">
+                <span>
+                  Манибэк
+                </span>
+
+                <strong className="green">
+                  {moneyback}
+                </strong>
+              </div>
+
+              <div className="rent-detail-note">
+                При самостоятельной отмене аренды вам
+                возвращается {moneyback}.
+              </div>
+
+            </section>
+
+          </div>
 
           {/* =========================
-              ИНФОРМАЦИЯ
+              ПРАВАЯ КОЛОНКА
           ========================== */}
 
           <div className="set-details">
@@ -88,9 +147,7 @@ export default async function SetPage({ params }) {
               {set.description}
             </p>
 
-            {/* =========================
-                ЦЕНА
-            ========================== */}
+            {/* ЦЕНА */}
 
             <div className="price-card">
 
@@ -133,9 +190,7 @@ export default async function SetPage({ params }) {
               отмене аренды вам возвращается {moneyback}.
             </div>
 
-            {/* =========================
-                АРЕНДА
-            ========================== */}
+            {/* КНОПКА */}
 
             <a
               href="https://t.me/USERNAME"
@@ -151,9 +206,7 @@ export default async function SetPage({ params }) {
               Без залога · Оформление через Telegram
             </div>
 
-            {/* =========================
-                ПРЕИМУЩЕСТВА
-            ========================== */}
+            {/* ПРЕИМУЩЕСТВА */}
 
             <div className="rent-features">
 
@@ -213,9 +266,7 @@ export default async function SetPage({ params }) {
 
             </div>
 
-            {/* =========================
-                СОСТАВ
-            ========================== */}
+            {/* СОСТАВ */}
 
             {items.length > 0 && (
               <>
@@ -269,64 +320,6 @@ export default async function SetPage({ params }) {
                 </section>
               </>
             )}
-
-            {/* =========================
-                ДЕТАЛИ АРЕНДЫ
-            ========================== */}
-
-            <div className="detail-divider" />
-
-            <section className="detail-section">
-
-              <div className="section-kicker">
-                ДЕТАЛИ АРЕНДЫ
-              </div>
-
-              <div className="stats">
-
-                <div className="stat">
-                  <span>
-                    Стоимость инвентаря
-                  </span>
-
-                  <strong>
-                    {set.value || "—"}
-                  </strong>
-                </div>
-
-                <div className="stat">
-                  <span>
-                    Залог
-                  </span>
-
-                  <strong className="green">
-                    0 ₽
-                  </strong>
-                </div>
-
-                <div className="stat">
-                  <span>
-                    Манибэк
-                  </span>
-
-                  <strong className="green">
-                    {moneyback}
-                  </strong>
-                </div>
-
-                <div className="stat">
-                  <span>
-                    Срок аренды
-                  </span>
-
-                  <strong>
-                    {set.duration}
-                  </strong>
-                </div>
-
-              </div>
-
-            </section>
 
           </div>
 
