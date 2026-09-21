@@ -32,20 +32,25 @@ export default async function SetPage({ params }) {
     <main className="set-page">
       <div className="container">
 
-        <Link href="/sets" className="back-link">
-          ← Все сеты
-        </Link>
-
         <div className="set-page-grid">
 
           {/* ФОТО */}
 
           <div className="set-gallery-column">
-            <SetGallery
-              images={set.images}
-              name={set.name}
-            />
-          </div>
+
+  <Link
+    href="/sets"
+    className="back-link"
+  >
+    ← Все сеты
+  </Link>
+
+  <SetGallery
+    images={set.images}
+    name={set.name}
+  />
+
+</div>
 
           {/* ИНФОРМАЦИЯ */}
 
