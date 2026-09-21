@@ -1,3 +1,9 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
+import sets from "../../../data/sets";
+import SetGallery from "../../../components/SetGallery";
+
 function getItemsText(count) {
   if (count % 10 === 1 && count % 100 !== 11) {
     return `${count} предмет`;
@@ -13,12 +19,6 @@ function getItemsText(count) {
   return `${count} предметов`;
 }
 
-import Link from "next/link";
-import { notFound } from "next/navigation";
-
-import sets from "../../../data/sets";
-import SetGallery from "../../../components/SetGallery";
-
 export default async function SetPage({ params }) {
   const { slug } = await params;
 
@@ -28,35 +28,43 @@ export default async function SetPage({ params }) {
     notFound();
   }
 
+  const moneyback = set.moneyback || "1 500 ₽";
+  const items = Array.isArray(set.items) ? set.items : [];
+
   return (
     <main className="set-page">
       <div className="container">
 
-       <div className="set-page-grid">
+        <div className="set-page-grid">
 
-  <div className="set-gallery-column">
+          {/* =========================
+              ГАЛЕРЕЯ
+          ========================== */}
 
-    <Link
-      href="/sets"
-      className="back-link"
-    >
-      ← Все сеты
-    </Link>
+          <div className="set-gallery-column">
 
-    <SetGallery
-      images={set.images}
-      name={set.name}
-    />
+            <Link
+              href="/sets"
+              className="back-link"
+            >
+              ← Все сеты
+            </Link>
 
-  </div>
+            <SetGallery
+              images={set.images}
+              name={set.name}
+            />
 
-  <div className="set-details">
+          </div>
 
-          {/* ИНФОРМАЦИЯ */}
+          {/* =========================
+              ИНФОРМАЦИЯ
+          ========================== */}
 
           <div className="set-details">
 
             <div className="set-detail-top">
+
               <span className="detail-tag">
                 {set.tag}
               </span>
@@ -65,15 +73,20 @@ export default async function SetPage({ params }) {
                 <i />
                 В наличии
               </span>
+
             </div>
 
-            <h1>{set.name}</h1>
+            <h1>
+              {set.name}
+            </h1>
 
             <p className="set-description">
               {set.description}
             </p>
 
-            {/* ЦЕНА */}
+            {/* =========================
+                ЦЕНА
+            ========================== */}
 
             <div className="price-card">
 
@@ -100,7 +113,7 @@ export default async function SetPage({ params }) {
                 </span>
 
                 <strong>
-                  1 500 ₽
+                  {moneyback}
                 </strong>
 
                 <span className="moneyback-text">
@@ -113,10 +126,12 @@ export default async function SetPage({ params }) {
 
             <div className="price-explanation">
               Вы оплачиваете {set.price}. При самостоятельной
-              отмене аренды вам возвращается 1 500 ₽.
+              отмене аренды вам возвращается {moneyback}.
             </div>
 
-            {/* КНОПКА */}
+            {/* =========================
+                АРЕНДА
+            ========================== */}
 
             <a
               href="https://t.me/USERNAME"
@@ -132,11 +147,14 @@ export default async function SetPage({ params }) {
               Без залога · Оформление через Telegram
             </div>
 
-            {/* ПРЕИМУЩЕСТВА */}
+            {/* =========================
+                ПРЕИМУЩЕСТВА
+            ========================== */}
 
             <div className="rent-features">
 
               <div className="rent-feature">
+
                 <span className="rent-icon">
                   ✓
                 </span>
@@ -150,9 +168,11 @@ export default async function SetPage({ params }) {
                     Дополнительный залог не требуется
                   </p>
                 </div>
+
               </div>
 
               <div className="rent-feature">
+
                 <span className="rent-icon">
                   ₽
                 </span>
@@ -166,9 +186,11 @@ export default async function SetPage({ params }) {
                     Стоимость аренды известна заранее
                   </p>
                 </div>
+
               </div>
 
               <div className="rent-feature">
+
                 <span className="rent-icon">
                   @
                 </span>
@@ -182,60 +204,71 @@ export default async function SetPage({ params }) {
                     Оформление и связь напрямую
                   </p>
                 </div>
+
               </div>
 
             </div>
 
-            {/* СОСТАВ */}
+            {/* =========================
+                СОСТАВ
+            ========================== */}
 
-            <div className="detail-divider" />
+            {items.length > 0 && (
+              <>
+                <div className="detail-divider" />
 
-            <section className="detail-section">
+                <section className="detail-section">
 
-              <div className="detail-section-heading">
+                  <div className="detail-section-heading">
 
-                <div>
-                  <div className="section-kicker">
-                    СОСТАВ
-                  </div>
+                    <div>
+                      <div className="section-kicker">
+                        СОСТАВ
+                      </div>
 
-                  <h2>
-                    Что входит в сет
-                  </h2>
-                </div>
+                      <h2>
+                        Что входит в сет
+                      </h2>
+                    </div>
 
-                <span className="items-count">
-                  {getItemsText(set.items.length)}
-                </span>
-
-              </div>
-
-              <div className="items-list">
-
-                {set.items.map((item, index) => (
-                  <div
-                    className="inventory-item"
-                    key={item}
-                  >
-                    <span>
-                      {String(index + 1).padStart(2, "0")}
+                    <span className="items-count">
+                      {getItemsText(items.length)}
                     </span>
 
-                    <strong>
-                      {item}
-                    </strong>
-
-                    <span className="item-check">
-                      ✓
-                    </span>
                   </div>
-                ))}
 
-              </div>
+                  <div className="items-list">
 
-            </section>
+                    {items.map((item, index) => (
+                      <div
+                        className="inventory-item"
+                        key={`${item}-${index}`}
+                      >
 
-            {/* ДЕТАЛИ */}
+                        <span>
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+
+                        <strong>
+                          {item}
+                        </strong>
+
+                        <span className="item-check">
+                          ✓
+                        </span>
+
+                      </div>
+                    ))}
+
+                  </div>
+
+                </section>
+              </>
+            )}
+
+            {/* =========================
+                ДЕТАЛИ АРЕНДЫ
+            ========================== */}
 
             <div className="detail-divider" />
 
@@ -253,7 +286,7 @@ export default async function SetPage({ params }) {
                   </span>
 
                   <strong>
-                    {set.value}
+                    {set.value || "—"}
                   </strong>
                 </div>
 
@@ -273,17 +306,17 @@ export default async function SetPage({ params }) {
                   </span>
 
                   <strong className="green">
-                    1 500 ₽
+                    {moneyback}
                   </strong>
                 </div>
 
                 <div className="stat">
                   <span>
-                    Формат
+                    Срок аренды
                   </span>
 
                   <strong>
-                    Готовый сет
+                    {set.duration}
                   </strong>
                 </div>
 
