@@ -1965,7 +1965,7 @@ a {
   align-self: start;
 }
 
-  align-items: start;
+  align-items: stretch;
 }
 
 /* ---------- Gallery ---------- */
