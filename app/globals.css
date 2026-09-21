@@ -2848,7 +2848,7 @@ a {
     minmax(0, 1.1fr)
     minmax(400px, 0.9fr);
 
-  align-items: start;
+  align-items: stretch;
 
   gap: 70px;
 }
