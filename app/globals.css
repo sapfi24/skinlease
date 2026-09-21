@@ -4400,3 +4400,69 @@ a {
     aspect-ratio: 1.15 / 1 !important;
   }
 }
+/* =========================================
+   STABLE STICKY GALLERY
+========================================= */
+
+.set-page-grid {
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(420px, 0.92fr) !important;
+
+  align-items: stretch !important;
+
+  gap: 55px !important;
+}
+
+.set-gallery-column {
+  position: relative !important;
+
+  min-width: 0 !important;
+
+  align-self: stretch !important;
+}
+
+.gallery-sticky {
+  position: sticky !important;
+
+  top: 105px !important;
+
+  height: fit-content !important;
+}
+
+.set-gallery {
+  position: static !important;
+
+  height: auto !important;
+}
+
+/* ссылка двигается вместе с фото */
+.gallery-sticky .back-link {
+  margin-bottom: 18px !important;
+}
+
+/* =========================================
+   НЕ ДАЁМ ГАЛЕРЕЕ ЗАЛЕЗАТЬ В HEADER
+========================================= */
+
+.gallery-sticky {
+  max-height: calc(100vh - 125px);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 950px) {
+  .set-page-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gallery-sticky {
+    position: static !important;
+
+    max-height: none !important;
+  }
+}
