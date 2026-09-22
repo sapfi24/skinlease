@@ -28,6 +28,10 @@ export default function Header() {
             Почему мы
           </a>
 
+          <a href="/reviews" className="nav-link">
+            Отзывы
+          </a>
+
           <a href="#how" className="nav-link">
             Как это работает
           </a>
@@ -71,6 +75,13 @@ export default function Header() {
             onClick={() => setOpen(false)}
           >
             Почему мы
+          </a>
+
+          <a>
+            href="/reviews"
+            onClick={() => setOpen(false)}
+
+             Отзывы
           </a>
 
           <a
