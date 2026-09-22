@@ -103,7 +103,7 @@ export default function Hero() {
           <h1>
             Аренда сетов CS2
             <br />
-            <span>без залога.</span>
+            <span>без залога</span>
           </h1>
 
           <p className="hero-description">
@@ -115,7 +115,7 @@ export default function Hero() {
           <div className="hero-actions">
 
             <a
-              href="#sets"
+              href="/sets"
               className="button-primary"
             >
               Смотреть сеты
