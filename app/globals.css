@@ -6884,10 +6884,12 @@ a {
   }
 
 }
-.arrow-icon {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1;
+
+.external-icon {
   display: inline-block;
-  transform: translateY(-1px);
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: translateY(-2px);
 }
