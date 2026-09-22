@@ -24,7 +24,7 @@ export default function Header() {
             Сеты
           </a>
 
-          <a href="#advantages" className="nav-link">
+          <a href="/#advantages" className="nav-link">
             Почему мы
           </a>
 
@@ -32,12 +32,12 @@ export default function Header() {
             Отзывы
           </a>
 
-          <a href="#how" className="nav-link">
+          <a href="/#how" className="nav-link">
             Как это работает
           </a>
 
           <a
-            href="https://t.me/USERNAME"
+            href="https://t.me/sapfiofcl"
             target="_blank"
             rel="noreferrer"
             className="nav-button"
@@ -71,7 +71,7 @@ export default function Header() {
 </a>
 
           <a
-            href="#advantages"
+            href="/#advantages"
             onClick={() => setOpen(false)}
           >
             Почему мы
@@ -85,14 +85,14 @@ export default function Header() {
           </a>
 
           <a
-            href="#how"
+            href="/#how"
             onClick={() => setOpen(false)}
           >
             Как это работает
           </a>
 
           <a
-            href="https://t.me/USERNAME"
+            href="https://t.me/sapfiofcl"
             target="_blank"
             rel="noreferrer"
           >

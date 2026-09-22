@@ -17,15 +17,14 @@ export default function CTA() {
             </div>
 
             <h2>
-              Нашли
+              Остались
               <br />
-              свой сет?
+              вопросы?
             </h2>
 
             <p>
               Напишите нам в Telegram,
-              чтобы проверить наличие
-              и оформить аренду без залога.
+              ответим на ваши вопросы.
             </p>
 
             <a
@@ -62,7 +61,7 @@ export default function CTA() {
 
           <div className="cta-side">
             <div className="cta-circle">
-              <span>SL</span>
+              <span></span>
             </div>
           </div>
 

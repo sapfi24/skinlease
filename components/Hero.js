@@ -123,7 +123,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="https://t.me/USERNAME"
+              href="https://t.me/sapfiofcl"
               target="_blank"
               rel="noreferrer"
               className="button-secondary"

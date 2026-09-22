@@ -8872,3 +8872,13 @@ a {
 .reviews-more .button-secondary:hover svg {
   transform: translate(2px, -2px);
 }
+.rent-detail-note {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .rent-detail-note {
+    font-size: 11px;
+    letter-spacing: -0.01em;
+  }
+}

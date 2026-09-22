@@ -30,7 +30,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://t.me/USERNAME"
+            href="https://t.me/sapfiofcl"
             target="_blank"
             rel="noreferrer"
           >
