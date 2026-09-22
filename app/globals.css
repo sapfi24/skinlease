@@ -6900,3 +6900,49 @@ a {
 .mobile-menu a:hover .mobile-arrow {
   transform: translate(2px, -2px);
 }
+/* =========================================================
+   SET CARD — СТРЕЛКА ДЛЯ ПК И МОБИЛКИ
+   ========================================================= */
+
+.hud-arrow-desktop {
+  display: flex !important;
+}
+
+.hud-arrow-mobile {
+  display: none;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+
+  padding: 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+
+  background: rgba(8, 11, 15, 0.5);
+
+  color: #fff;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.hud-set-card:hover .hud-arrow-mobile {
+  transform: translate(3px, -3px);
+
+  border-color: rgba(0, 208, 132, 0.35);
+
+  background: rgba(0, 208, 132, 0.12);
+}
+
+@media (max-width: 600px) {
+  .hud-arrow-desktop {
+    display: none !important;
+  }
+
+  .hud-arrow-mobile {
+    display: block !important;
+  }
+}

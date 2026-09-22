@@ -74,9 +74,27 @@ export default function SetCard({ set, index }) {
               </span>
             </div>
 
-            <span className="hud-arrow">
-              ↗
-            </span>
+            <span className="hud-arrow hud-arrow-desktop">
+  ↗
+</span>
+
+<svg
+  className="hud-arrow-mobile"
+  width="18"
+  height="18"
+  viewBox="0 0 14 14"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <path
+    d="M3 11L11 3M5 3H11V9"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg>
           </div>
         </div>
       </div>

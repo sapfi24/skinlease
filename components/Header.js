@@ -17,7 +17,7 @@ export default function Header() {
           />
         </a>
 
-
+        {/* ПК */}
         <nav className="nav desktop-nav">
 
           <a href="#sets" className="nav-link">
@@ -38,69 +38,77 @@ export default function Header() {
             rel="noreferrer"
             className="nav-button"
           >
-            ТЕСТ123
+            Telegram <span>↗</span>
           </a>
 
         </nav>
 
-
+        {/* Мобильная кнопка */}
         <button
+          type="button"
           className="mobile-menu-button"
           onClick={() => setOpen(!open)}
+          aria-label="Открыть меню"
         >
           ☰
         </button>
 
-
       </div>
 
-
+      {/* Мобильное меню */}
       {open && (
-
         <div className="mobile-menu">
 
-          <a href="#sets">
+          <a
+            href="#sets"
+            onClick={() => setOpen(false)}
+          >
             Сеты
           </a>
 
-          <a href="#advantages">
+          <a
+            href="#advantages"
+            onClick={() => setOpen(false)}
+          >
             Почему мы
           </a>
 
-          <a href="#how">
+          <a
+            href="#how"
+            onClick={() => setOpen(false)}
+          >
             Как это работает
           </a>
 
           <a
-  href="https://t.me/USERNAME"
-  target="_blank"
-  rel="noreferrer"
->
-  Telegram
+            href="https://t.me/USERNAME"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Telegram
 
-  <svg
-    className="mobile-arrow"
-    width="14"
-    height="14"
-    viewBox="0 0 14 14"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    <path
-      d="M3 11L11 3M5 3H11V9"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-</a>
+            <svg
+              className="mobile-arrow"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 11L11 3M5 3H11V9"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+
+          </a>
 
         </div>
-
       )}
-
 
     </header>
   );
