@@ -77,10 +77,10 @@ export default function Header() {
             Почему мы
           </a>
 
-          <a>
+          <a
             href="/reviews"
             onClick={() => setOpen(false)}
-
+          >
              Отзывы
           </a>
 
