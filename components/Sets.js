@@ -18,7 +18,7 @@ export default function Sets() {
             </span>
 
             <h2>
-              Выберите свой сет.
+              Выбери свой сет
             </h2>
           </div>
         </div>

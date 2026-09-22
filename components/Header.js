@@ -20,7 +20,7 @@ export default function Header() {
         {/* ПК */}
         <nav className="nav desktop-nav">
 
-          <a href="#sets" className="nav-link">
+          <a href="/sets" className="nav-link">
             Сеты
           </a>
 
@@ -60,11 +60,11 @@ export default function Header() {
         <div className="mobile-menu">
 
           <a
-            href="#sets"
-            onClick={() => setOpen(false)}
-          >
-            Сеты
-          </a>
+  href="/sets"
+  onClick={() => setOpen(false)}
+>
+  Сеты
+</a>
 
           <a
             href="#advantages"
