@@ -39,7 +39,9 @@ export default function Header() {
             className="nav-button"
           >
             Telegram
-            <span className="arrow-icon">↗</span>
+            <span className="arrow-icon">
+              ↗
+            </span>
           </a>
 
         </nav>
