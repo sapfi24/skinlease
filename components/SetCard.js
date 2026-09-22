@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 function getStatusText(status) {
@@ -53,13 +55,34 @@ export default function SetCard({ set, index }) {
           </span>
 
           <span
-            className={`hud-status ${getStatusClass(
-              set.status
-            )}`}
-          >
-            <i />
-            {getStatusText(set.status)}
-          </span>
+  className={`hud-status-wrap ${
+    set.status === "available"
+      ? ""
+      : "has-status-tooltip"
+  }`}
+>
+  <span
+    className={`hud-status ${getStatusClass(
+      set.status
+    )}`}
+    tabIndex={set.status === "available" ? -1 : 0}
+    onClick={(event) => {
+      if (set.status !== "available") {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }}
+  >
+    <i />
+    {getStatusText(set.status)}
+  </span>
+
+  {set.status !== "available" && set.statusUntil && (
+    <span className="status-tooltip">
+      {set.statusUntil}
+    </span>
+  )}
+</span>
         </div>
 
         {/* Нижняя информация НА ФОТО */}

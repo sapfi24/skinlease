@@ -1,4 +1,86 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import sets from "../data/sets";
+
+function getStatusText(status) {
+  switch (status) {
+    case "available":
+      return "В НАЛИЧИИ";
+    case "rented":
+      return "В АРЕНДЕ";
+    case "tradeban":
+      return "ТРЕЙД БАН";
+    default:
+      return "В НАЛИЧИИ";
+  }
+}
+
+function getStatusClass(status) {
+  switch (status) {
+    case "rented":
+      return "hero-set-status-rented";
+    case "tradeban":
+      return "hero-set-status-tradeban";
+    default:
+      return "hero-set-status-available";
+  }
+}
+
 export default function Hero() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const carouselSets = useMemo(() => {
+    const available = sets.filter(
+      (set) => set.status === "available" || !set.status
+    );
+
+    const rented = sets.filter(
+      (set) => set.status === "rented"
+    );
+
+    const tradeban = sets.filter(
+      (set) => set.status === "tradeban"
+    );
+
+    return [...available, ...rented, ...tradeban].slice(0, 4);
+  }, []);
+
+  useEffect(() => {
+    if (carouselSets.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (
+        (current + 1) % carouselSets.length
+      ));
+    }, 6500);
+
+    return () => clearInterval(interval);
+  }, [carouselSets.length]);
+
+  const getRelativePosition = (index) => {
+    const length = carouselSets.length;
+
+    if (length <= 1) return "active";
+
+    let diff = index - activeIndex;
+
+    if (diff > length / 2) {
+      diff -= length;
+    }
+
+    if (diff < -length / 2) {
+      diff += length;
+    }
+
+    if (diff === 0) return "active";
+    if (diff === -1) return "prev";
+    if (diff === 1) return "next";
+
+    return "hidden";
+  };
+
   return (
     <section className="hero">
       <div className="hero-noise" />
@@ -6,6 +88,7 @@ export default function Hero() {
       <div className="container hero-grid">
 
         <div className="hero-content">
+
           <div className="eyebrow">
             <span />
             SKINLEASE
@@ -24,7 +107,11 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions">
-            <a href="#sets" className="button-primary">
+
+            <a
+              href="#sets"
+              className="button-primary"
+            >
               Смотреть сеты
               <span>→</span>
             </a>
@@ -36,31 +123,34 @@ export default function Hero() {
               className="button-secondary"
             >
               Написать в Telegram
-              <span className="hero-arrow-desktop">
-  ↗
-</span>
 
-<svg
-  className="hero-arrow-mobile"
-  width="18"
-  height="18"
-  viewBox="0 0 14 14"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
-  aria-hidden="true"
->
-  <path
-    d="M3 11L11 3M5 3H11V9"
-    stroke="currentColor"
-    strokeWidth="1.6"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
-</svg>
+              <span className="hero-arrow-desktop">
+                ↗
+              </span>
+
+              <svg
+                className="hero-arrow-mobile"
+                width="18"
+                height="18"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 11L11 3M5 3H11V9"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </a>
+
           </div>
 
           <div className="hero-points">
+
             <div>
               <strong>Без залога</strong>
               <span>никаких дополнительных платежей</span>
@@ -75,51 +165,101 @@ export default function Hero() {
               <strong>Готовые сеты</strong>
               <span>всё уже собрано за вас</span>
             </div>
+
           </div>
+
         </div>
 
+
         <div className="hero-visual-simple">
-          <div className="set-visual">
 
-            <div className="set-visual-top">
-              <div>
-                <span>PINK COLLECTION</span>
-                <h2>Pink Set</h2>
+          {carouselSets.length > 0 ? (
+            <div className="hero-carousel">
+
+              {carouselSets.map((set, index) => {
+                const position = getRelativePosition(index);
+
+                return (
+                  <Link
+                    key={set.slug}
+                    href={`/sets/${set.slug}`}
+                    className={`hero-carousel-card hero-carousel-${position}`}
+                  >
+
+                    <div
+                      className="hero-carousel-image"
+                      style={{
+                        backgroundImage: `url("${set.images?.[0] || ""}")`,
+                      }}
+                    />
+
+                    <div className="hero-carousel-overlay" />
+
+                    <div className="hero-carousel-top">
+
+                      <span className="hero-carousel-index">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+
+                      <span
+                        className={`hero-carousel-status ${getStatusClass(
+                          set.status
+                        )}`}
+                      >
+                        <i />
+                        {getStatusText(set.status)}
+                      </span>
+
+                    </div>
+
+                    <div className="hero-carousel-bottom">
+
+                      <div>
+                        <span className="hero-carousel-kicker">
+                          SKINLEASE SET
+                        </span>
+
+                        <h2>{set.name}</h2>
+
+                        <div className="hero-carousel-price">
+                          <strong>{set.price}</strong>
+                          <span>/ {set.duration}</span>
+                        </div>
+                      </div>
+
+                      <span className="hero-carousel-arrow">
+                        →
+                      </span>
+
+                    </div>
+
+                  </Link>
+                );
+              })}
+
+              <div className="hero-carousel-dots">
+                {carouselSets.map((set, index) => (
+                  <button
+                    key={set.slug}
+                    type="button"
+                    className={
+                      index === activeIndex
+                        ? "active"
+                        : ""
+                    }
+                    onClick={() => setActiveIndex(index)}
+                    aria-label={`Показать ${set.name}`}
+                  />
+                ))}
               </div>
 
-              <div className="set-status">
-                <i />
-                В наличии
-              </div>
             </div>
-
-            <div className="set-photo-placeholder">
-              <div className="photo-glow" />
-
-              <div className="photo-label">
-                PREVIEW
-              </div>
-
-              <div className="photo-title">
-                PINK
-              </div>
-
-              <div className="photo-line" />
+          ) : (
+            <div className="hero-carousel-empty">
+              Сеты скоро появятся
             </div>
+          )}
 
-            <div className="set-visual-bottom">
-              <div>
-                <span>АРЕНДА ОТ</span>
-                <strong>2 000 ₽</strong>
-                <small>/ 6 дней</small>
-              </div>
-
-              <a href="#sets" className="set-view-button">
-                Посмотреть →
-              </a>
-            </div>
-
-          </div>
         </div>
 
       </div>

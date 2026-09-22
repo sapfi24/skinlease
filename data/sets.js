@@ -2,14 +2,15 @@
 // "available" → Доступен
 // "rented"    → В аренде
 // "tradeban"  → Трейд бан
+//statusUntil: "срок до которого сет недоступен"
 
 const sets = [
   {
   slug: "pink",
   name: "Неоново-розовый сет",
   tag: "Идеально для снайпера",
-  status: "available",
-
+  status: "tradeban",
+  statusUntil: "До 20 октября",
   price: "3 250 ₽",
   duration: "6 дней",
   moneyback: "1 500 ₽",
@@ -103,7 +104,8 @@ const sets = [
   {
     slug: "snow",
     name: "Снежный сет",
-    status: "available",
+    status: "tradeban",
+    statusUntil: "До 5 октября",
     tag: "Идеально чистый",
     price: "2 700 ₽",
     moneyback: "1 300 ₽",
