@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+  useRef
+} from "react";
 import Link from "next/link";
 import sets from "../data/sets";
 
@@ -30,6 +35,7 @@ function getStatusClass(status) {
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartX = useRef(0);
 
   const carouselSets = useMemo(() => {
     const available = sets.filter(
@@ -174,7 +180,33 @@ export default function Hero() {
         <div className="hero-visual-simple">
 
           {carouselSets.length > 0 ? (
-            <div className="hero-carousel">
+            <div
+  className="hero-carousel"
+  onTouchStart={(e) => {
+    touchStartX.current =
+      e.touches[0].clientX;
+  }}
+  onTouchEnd={(e) => {
+    const diff =
+      touchStartX.current -
+      e.changedTouches[0].clientX;
+
+    if (Math.abs(diff) < 50) return;
+
+    if (diff > 0) {
+      setActiveIndex((current) =>
+        (current + 1) %
+        carouselSets.length
+      );
+    } else {
+      setActiveIndex((current) =>
+        current === 0
+          ? carouselSets.length - 1
+          : current - 1
+      );
+    }
+  }}
+>
 
               {carouselSets.map((set, index) => {
                 const position = getRelativePosition(index);
