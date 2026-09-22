@@ -36,7 +36,27 @@ export default function Hero() {
               className="button-secondary"
             >
               Написать в Telegram
-              <span>&#8599;</span>
+              <span className="hero-arrow-desktop">
+  ↗
+</span>
+
+<svg
+  className="hero-arrow-mobile"
+  width="18"
+  height="18"
+  viewBox="0 0 14 14"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <path
+    d="M3 11L11 3M5 3H11V9"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg>
             </a>
           </div>
 

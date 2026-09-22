@@ -6946,3 +6946,25 @@ a {
     display: block !important;
   }
 }
+/* =========================================================
+   HERO — СТРЕЛКА TELEGRAM
+   ========================================================= */
+
+.hero-arrow-desktop {
+  display: inline-block;
+}
+
+.hero-arrow-mobile {
+  display: none;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .hero-arrow-desktop {
+    display: none !important;
+  }
+
+  .hero-arrow-mobile {
+    display: block !important;
+  }
+}
