@@ -216,7 +216,7 @@ export default async function SetPage({ params }) {
               className="rent-button"
             >
               Арендовать этот сет
-              <span>↗</span>
+              <span>&#8599;</span>
             </a>
 
             <div className="rent-note">

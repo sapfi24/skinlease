@@ -36,7 +36,7 @@ export default function Hero() {
               className="button-secondary"
             >
               Написать в Telegram
-              <span>↗</span>
+              <span>&#8599;</span>
             </a>
           </div>
 

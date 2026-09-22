@@ -35,7 +35,7 @@ export default function CTA() {
               className="button-primary"
             >
               Написать в Telegram
-              <span>↗</span>
+              <span>&#8599;</span>
             </a>
 
           </div>
