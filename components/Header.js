@@ -76,7 +76,7 @@ export default function Header() {
             target="_blank"
             rel="noreferrer"
           >
-            Telegram ↗
+            Telegram 
           </a>
 
         </div>
