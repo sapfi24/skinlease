@@ -6885,8 +6885,18 @@ a {
 
 }
 
-.arrow-icon {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 4px;
+.mobile-menu a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.mobile-arrow {
+  display: block;
+  flex-shrink: 0;
+  transition: transform 180ms ease;
+}
+
+.mobile-menu a:hover .mobile-arrow {
+  transform: translate(2px, -2px);
 }
