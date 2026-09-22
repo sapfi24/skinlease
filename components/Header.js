@@ -1,6 +1,13 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="header">
+
       <div className="header-inner">
 
         <a href="/" className="logo">
@@ -10,7 +17,9 @@ export default function Header() {
           />
         </a>
 
-        <nav className="nav">
+
+        <nav className="nav desktop-nav">
+
           <a href="#sets" className="nav-link">
             Сеты
           </a>
@@ -29,11 +38,53 @@ export default function Header() {
             rel="noreferrer"
             className="nav-button"
           >
-            Telegram <span>↗</span>
+            Telegram
+            <span className="arrow-icon">↗</span>
           </a>
+
         </nav>
 
+
+        <button
+          className="mobile-menu-button"
+          onClick={() => setOpen(!open)}
+        >
+          ☰
+        </button>
+
+
       </div>
+
+
+      {open && (
+
+        <div className="mobile-menu">
+
+          <a href="#sets">
+            Сеты
+          </a>
+
+          <a href="#advantages">
+            Почему мы
+          </a>
+
+          <a href="#how">
+            Как это работает
+          </a>
+
+          <a
+            href="https://t.me/USERNAME"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Telegram ↗
+          </a>
+
+        </div>
+
+      )}
+
+
     </header>
   );
 }
