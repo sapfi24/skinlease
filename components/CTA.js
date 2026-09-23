@@ -46,35 +46,11 @@ export default function CTA() {
                   />
                 </svg>
               </a>{" "}
-              или напишите нам в{" "}
-              <a
-                href="https://t.me/USERNAME"
-                target="_blank"
-                rel="noreferrer"
-                className="cta-inline-link"
-              >
-                Telegram
-                <svg
-                  width="13"
-                  height="13"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M3 11L11 3M5 3H11V9"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>.
+              или напишите нам в Telegram
             </p>
 
             <a
-              href="https://t.me/USERNAME"
+              href="https://t.me/sapfiofcl"
               target="_blank"
               rel="noreferrer"
               className="button-primary"
