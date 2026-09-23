@@ -23,38 +23,85 @@ export default function CTA() {
             </h2>
 
             <p>
-              Напишите нам в Telegram,
-              ответим на ваши вопросы.
+              Ознакомьтесь с{" "}
+              <a
+                href="/faq"
+                className="cta-inline-link"
+              >
+                разделом FAQ
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 11L11 3M5 3H11V9"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>{" "}
+              или напишите нам в{" "}
+              <a
+                href="https://t.me/USERNAME"
+                target="_blank"
+                rel="noreferrer"
+                className="cta-inline-link"
+              >
+                Telegram
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 11L11 3M5 3H11V9"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>.
             </p>
 
             <a
-              href="https://t.me/sapfiofcl"
+              href="https://t.me/USERNAME"
               target="_blank"
               rel="noreferrer"
               className="button-primary"
             >
               Написать в Telegram
 
-<span className="cta-arrow-desktop">
-</span>
+              <span className="cta-arrow-desktop">
+      
+              </span>
 
-<svg
-  className="cta-arrow-mobile"
-  width="18"
-  height="18"
-  viewBox="0 0 14 14"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
-  aria-hidden="true"
->
-  <path
-    d="M3 11L11 3M5 3H11V9"
-    stroke="currentColor"
-    strokeWidth="1.6"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
-</svg>
+              <svg
+                className="cta-arrow-mobile"
+                width="18"
+                height="18"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 11L11 3M5 3H11V9"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </a>
 
           </div>

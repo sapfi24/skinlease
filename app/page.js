@@ -8,7 +8,6 @@ import CTA from "../components/CTA";
 export default function Home() {
   return (
     <>
-
       <div className="site-background" />
 
       <main>
@@ -19,7 +18,6 @@ export default function Home() {
         <Reviews limit={3} />
         <CTA />
       </main>
-
     </>
   );
 }
