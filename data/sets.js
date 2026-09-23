@@ -99,7 +99,11 @@ const sets = [
       "/sets/blue/1.jpg",
       "/sets/blue/2.jpg",
       "/sets/blue/3.jpg",
-      "/sets/blue/4.jpg"
+      "/sets/blue/4.jpg",
+      "/sets/blue/5.jpg",
+      "/sets/blue/6.jpg",
+      "/sets/blue/7.jpg",
+      "/sets/blue/8.jpg"
     ]
   },
 
@@ -214,6 +218,34 @@ const sets = [
       "/sets/darkwhite/6.jpg",
       "/sets/darkwhite/7.jpg",
       "/sets/darkwhite/8.jpg",
+    ]
+  },
+
+  {
+    slug: "doppler4",
+    name: "Еще не придумал",
+    status: "rented",
+    statusUntil: "Долгосрочная аренда",
+    tag: "Идеальное сочетание",
+    price: "4 250 ₽",
+    moneyback: "2 250 ₽",
+    duration: "6 дней",
+
+    description:
+      "★ Karambit | Doppler Phase 4 (Factory New) + ★ Specialist Gloves | Cloud Chaser (Field-Tested)",
+
+    value: "≈ 152 750 ₽",
+
+    items: [
+      "★ Karambit | Doppler Phase 4",
+      "★ Specialist Gloves | Cloud Chaser",
+    ],
+
+    images: [
+      "/sets/doppler4/1.jpg",
+      "/sets/doppler4/2.jpg",
+      "/sets/doppler4/3.jpg",
+      "/sets/doppler4/4.jpg"
     ]
   },
 
