@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function SetGallery({ images, name }) {
   const [active, setActive] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+
+  const thumbRefs = useRef([]);
 
   const next = () => {
     setActive((current) =>
@@ -17,6 +19,20 @@ export default function SetGallery({ images, name }) {
       current === 0 ? images.length - 1 : current - 1
     );
   };
+
+  // Автоматически прокручиваем миниатюры
+  // к текущей фотографии
+  useEffect(() => {
+    const activeThumb = thumbRefs.current[active];
+
+    if (!activeThumb) return;
+
+    activeThumb.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, [active]);
 
   // Закрытие модального окна по Escape
   useEffect(() => {
@@ -89,6 +105,7 @@ export default function SetGallery({ images, name }) {
 
         </div>
 
+
         {/* Миниатюры */}
         <div className="gallery-thumbs">
 
@@ -96,10 +113,14 @@ export default function SetGallery({ images, name }) {
             <button
               type="button"
               key={`${image}-${index}`}
+              ref={(element) => {
+                thumbRefs.current[index] = element;
+              }}
               className={`gallery-thumb ${
                 active === index ? "active" : ""
               }`}
               onClick={() => setActive(index)}
+              aria-label={`Открыть фото ${index + 1}`}
             >
               <img
                 src={image}
@@ -111,6 +132,7 @@ export default function SetGallery({ images, name }) {
         </div>
 
       </div>
+
 
       {/* Полноэкранная галерея */}
       {isOpen && (
@@ -132,6 +154,7 @@ export default function SetGallery({ images, name }) {
             ←
           </button>
 
+
           {/* Изображение */}
           <img
             src={images[active]}
@@ -140,6 +163,7 @@ export default function SetGallery({ images, name }) {
               event.stopPropagation();
             }}
           />
+
 
           {/* Следующее фото */}
           <button
@@ -153,6 +177,7 @@ export default function SetGallery({ images, name }) {
           >
             →
           </button>
+
 
           {/* Крестик */}
           <button

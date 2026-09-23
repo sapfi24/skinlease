@@ -8882,3 +8882,26 @@ a {
     letter-spacing: -0.01em;
   }
 }
+
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+
+  width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery-thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-thumb {
+  flex: 0 0 calc((100% - 30px) / 4);
+  min-width: 0;
+}

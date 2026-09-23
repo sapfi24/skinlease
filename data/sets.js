@@ -38,7 +38,8 @@ const sets = [
     slug: "omega",
     name: "Омега сет",
     tag: "NEW",
-    status: "available",
+    status: "rented",
+    statusUntil: "Долгосрочная аренда",
     price: "3 250 ₽",
     duration: "6 дней",
     moneyback: "1 500 ₽",
@@ -65,7 +66,8 @@ const sets = [
     slug: "blue",
     name: "Синий сет",
     tag: "С готовым инвентарём",
-    status: "available",
+    status: "rented",
+    statusUntil: "Долгосрочная аренда",
     price: "3 500 ₽",
     duration: "6 дней",
     moneyback: "1 500 ₽",
@@ -162,6 +164,60 @@ const sets = [
       "/sets/darkblue/4.jpg",
     ]
   },
+
+
+  {
+    slug: "darkwhite",
+    name: "Чёрно-белый сет",
+    tag: "Готовый инвентарь",
+    status: "tradeban",
+    statusUntil: "27 сентября",
+    price: "3 500 ₽",
+    duration: "6 дней",
+    moneyback: "2 000 ₽",
+
+    description:
+      "★ Butterfly Knife | Black Laminate (Minimal Wear) + ★ Moto Gloves | Smoke Out (Field-Tested)",
+
+    value: "≈ 68 520 ₽",
+
+    items: [
+      "★ Butterfly Knife | Black Laminate (Minimal Wear)",
+      "★ Moto Gloves | Smoke Out",
+      "AWP | Конец",
+      "AK-47 | Прорыв",
+      "UMP-45 | Арктический волк",
+      "SSG 08 | Zeno",
+      "M4A1-S | Василиск",
+      "Glock-18 | След зафиксирован",
+      "Desert Eagle | «Дейли Дигл»",
+      "USP-S | Билет в ад",
+      "FAMAS | Серый призрак",
+      "Five-SeveN | Серебряный кварц",
+      "M4A4 | Эолова тьма",
+      "CZ75-Auto | Штамп",
+      "AUG | Жуть",
+      "Tec-9 | Пиксельный камуфляж «Город»",
+      "MAC-10 | Снежные брызги",
+      "Автомат «Галиль» | Серый дым",
+      "Dual Berettas | Серебряный налив",
+      "MP9 | Голова кругом",
+      "P250 | Ледяная корка",
+    ],
+
+    images: [
+      "/sets/darkwhite/1.jpg",
+      "/sets/darkwhite/2.jpg",
+      "/sets/darkwhite/3.jpg",
+      "/sets/darkwhite/4.jpg",
+      "/sets/darkwhite/5.jpg",
+      "/sets/darkwhite/6.jpg",
+      "/sets/darkwhite/7.jpg",
+      "/sets/darkwhite/8.jpg",
+    ]
+  },
+
+
 ];
 
 export default sets;
