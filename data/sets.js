@@ -223,7 +223,7 @@ const sets = [
 
   {
     slug: "doppler4",
-    name: "Еще не придумал",
+    name: "Волнистое облако",
     status: "rented",
     statusUntil: "Долгосрочная аренда",
     tag: "Идеальное сочетание",
@@ -246,6 +246,51 @@ const sets = [
       "/sets/doppler4/2.jpg",
       "/sets/doppler4/3.jpg",
       "/sets/doppler4/4.jpg"
+    ]
+  },
+
+  {
+    slug: "mystic",
+    name: "Мистический сет",
+    tag: "С готовым инвентарём",
+    status: "rented",
+    statusUntil: "Долгосрочная аренда",
+    price: "5 000 ₽",
+    duration: "6 дней",
+    moneyback: "2 000 ₽",
+
+    description:
+      "★ Butterfly Knife | Slaughter (Factory New) + ★ Sport Gloves | Occult (Field-Tested)",
+
+    value: "≈ 210 550 ₽",
+
+    items: [
+      "★ Butterfly Knife | Slaughter",
+      "★ Sport Gloves | Occult",
+      "Desert Eagle | Fennec Fox",
+      "AWP | Queen's Gambit",
+      "M4A4 | The Emperor",
+      "USP-S | The Traitor",
+      "AK-47 | Legion of Anubis",
+      "Glock-18 | Ramese's Reach",
+      "Galil AR | Dusk Ruins",
+      "FAMAS | Survivor Z",
+      "Tec-9 | Sultan",
+      "M4A1-S | Night Terror",
+      "FAMAS | Survivor Z",
+      "SSG 08 | Calligrafaux",
+      "MP7 | Coral Paisley",
+    ],
+
+    images: [
+      "/sets/mystic/1.png",
+      "/sets/mystic/2.png",
+      "/sets/mystic/3.png",
+      "/sets/mystic/4.png",
+      "/sets/mystic/5.png",
+      "/sets/mystic/6.png",
+      "/sets/mystic/7.png",
+      "/sets/mystic/8.png"
     ]
   },
 
