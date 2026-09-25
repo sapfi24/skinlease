@@ -4642,6 +4642,8 @@ a {
 .set-description {
   max-width: 610px !important;
 
+  white-space: pre-line !important;
+
   margin-top: 22px !important;
 
   font-size: 16px !important;

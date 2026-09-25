@@ -138,7 +138,8 @@ const sets = [
     slug: "darkblue",
     name: "Тёмно-синий сет",
     tag: "С дополнительными скинами",
-    status: "available",
+    statusUntil: "До 1 октября",
+    status: "rented",
     price: "2 250 ₽",
     duration: "6 дней",
     moneyback: "1 250 ₽",
@@ -291,6 +292,34 @@ const sets = [
       "/sets/mystic/6.png",
       "/sets/mystic/7.png",
       "/sets/mystic/8.png"
+    ]
+  },
+
+  {
+    slug: "biba",
+    name: "Камуфляжный сет",
+    tag: "Бесплатно",
+    status: "tradeban",
+    statusUntil: "1 октября",
+    price: "500 ₽",
+    duration: "6 дней",
+    moneyback: "500 ₽",
+
+    description:
+      "★ Kukri Knife | Boreal Forest (Field-Tested) + ★ Specialist Gloves | Buckshot (Field-Tested) \n\n Сет является бесплатным при выполнении следующих условий: покупка через авито, положительный отзыв, самостоятельная отмена трейда в конце аренды",
+
+    value: "≈ 6 850 ₽",
+
+    items: [
+      "★ Kukri Knife | Boreal Forest",
+      "★ Specialist Gloves | Buckshot",
+    ],
+
+    images: [
+      "/sets/biba/1.png",
+      "/sets/biba/2.png",
+      "/sets/biba/3.png",
+      "/sets/biba/4.png",
     ]
   },
 
