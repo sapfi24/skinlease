@@ -176,7 +176,7 @@ const sets = [
     name: "Чёрно-белый сет",
     tag: "Готовый инвентарь",
     status: "tradeban",
-    statusUntil: "27.09",
+    statusUntil: "28.09",
     price: "3 500 ₽",
     duration: "6 дней",
     moneyback: "2 000 ₽",
