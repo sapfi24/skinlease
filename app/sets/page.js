@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import sets from "../../data/sets";
 import SetCard from "../../components/SetCard";
 
@@ -11,12 +11,29 @@ const statusPriority = {
   longterm: 2,
 };
 
+const sortOptions = [
+  {
+    value: "date",
+    label: "По дате разблокировки",
+  },
+  {
+    value: "value",
+    label: "По стоимости сета",
+  },
+  {
+    value: "price",
+    label: "По стоимости аренды",
+  },
+];
+
 const parseStatusDate = (value) => {
   if (!value || typeof value !== "string") {
     return null;
   }
 
-  const match = value.trim().match(/^(\d{1,2})\.(\d{1,2})$/);
+  const match = value
+    .trim()
+    .match(/^(\d{1,2})\.(\d{1,2})$/);
 
   if (!match) {
     return null;
@@ -55,12 +72,10 @@ const sortByUnlockDate = (a, b) => {
   const priorityA = statusPriority[a.status] ?? 1;
   const priorityB = statusPriority[b.status] ?? 1;
 
-  // Сначала доступные
   if (priorityA !== priorityB) {
     return priorityA - priorityB;
   }
 
-  // Доступные сохраняют исходный порядок
   if (
     a.status === "available" &&
     b.status === "available"
@@ -68,7 +83,6 @@ const sortByUnlockDate = (a, b) => {
     return 0;
   }
 
-  // Долгосрочные сохраняют исходный порядок
   if (
     a.status === "longterm" &&
     b.status === "longterm"
@@ -79,12 +93,10 @@ const sortByUnlockDate = (a, b) => {
   const dateA = parseStatusDate(a.statusUntil);
   const dateB = parseStatusDate(b.statusUntil);
 
-  // Оба имеют дату
   if (dateA !== null && dateB !== null) {
     return dateA - dateB;
   }
 
-  // Дата выше обычного текста
   if (dateA !== null && dateB === null) {
     return -1;
   }
@@ -93,7 +105,6 @@ const sortByUnlockDate = (a, b) => {
     return 1;
   }
 
-  // Если у обоих текст — исходный порядок
   return 0;
 };
 
@@ -101,7 +112,6 @@ const sortByValue = (a, b) => {
   const valueA = parseMoney(a.value);
   const valueB = parseMoney(b.value);
 
-  // Сеты без стоимости отправляем в конец
   if (valueA === null && valueB === null) {
     return 0;
   }
@@ -121,7 +131,6 @@ const sortByPrice = (a, b) => {
   const priceA = parseMoney(a.price);
   const priceB = parseMoney(b.price);
 
-  // Сеты без цены отправляем в конец
   if (priceA === null && priceB === null) {
     return 0;
   }
@@ -139,20 +148,77 @@ const sortByPrice = (a, b) => {
 
 export default function SetsPage() {
   const [sortType, setSortType] = useState("date");
+  const [sortDirection, setSortDirection] = useState("asc");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const sortRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        sortRef.current &&
+        !sortRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener(
+      "mousedown",
+      handleClickOutside
+    );
+
+    return () => {
+      document.removeEventListener(
+        "mousedown",
+        handleClickOutside
+      );
+    };
+  }, []);
+
+  const selectedOption =
+    sortOptions.find(
+      (option) => option.value === sortType
+    ) || sortOptions[0];
 
   const sortedSets = [...sets].sort((a, b) => {
+    let result = 0;
+
     switch (sortType) {
       case "value":
-        return sortByValue(a, b);
+        result = sortByValue(a, b);
+        break;
 
       case "price":
-        return sortByPrice(a, b);
+        result = sortByPrice(a, b);
+        break;
 
       case "date":
       default:
-        return sortByUnlockDate(a, b);
+        result = sortByUnlockDate(a, b);
+        break;
     }
+
+    return sortDirection === "desc"
+      ? -result
+      : result;
   });
+
+  const handleSortChange = (value) => {
+    if (value === sortType) {
+      setSortDirection((prev) =>
+        prev === "asc" ? "desc" : "asc"
+      );
+    } else {
+      setSortType(value);
+      setSortDirection("asc");
+    }
+
+    setIsOpen(false);
+  };
+
+  const directionSymbol =
+    sortDirection === "asc" ? "↑" : "↓";
 
   return (
     <main className="sets-page">
@@ -173,30 +239,99 @@ export default function SetsPage() {
             </p>
           </div>
 
-          <div className="sets-sort">
-            <label htmlFor="sets-sort-select">
+          <div
+            className={`sets-sort ${
+              isOpen ? "is-open" : ""
+            }`}
+            ref={sortRef}
+          >
+            <span className="sets-sort-label">
               СОРТИРОВКА
-            </label>
+            </span>
 
-            <select
-              id="sets-sort-select"
-              value={sortType}
-              onChange={(event) =>
-                setSortType(event.target.value)
+            <button
+              type="button"
+              className="sets-sort-trigger"
+              onClick={() =>
+                setIsOpen((prev) => !prev)
               }
+              aria-expanded={isOpen}
+              aria-haspopup="listbox"
             >
-              <option value="date">
-                По дате разблокировки
-              </option>
+              <span className="sets-sort-trigger-content">
+                <span className="sets-sort-arrow">
+                  {directionSymbol}
+                </span>
 
-              <option value="value">
-                По стоимости сета
-              </option>
+                <span>
+                  {selectedOption.label}
+                </span>
+              </span>
 
-              <option value="price">
-                По стоимости аренды
-              </option>
-            </select>
+              <svg
+                className="sets-sort-chevron"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3.5 5.25L7 8.75L10.5 5.25"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            <div
+              className={`sets-sort-menu ${
+                isOpen ? "is-visible" : ""
+              }`}
+              role="listbox"
+            >
+              {sortOptions.map((option) => {
+                const isSelected =
+                  sortType === option.value;
+
+                const optionDirection =
+                  isSelected
+                    ? sortDirection
+                    : "asc";
+
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    className={`sets-sort-option ${
+                      isSelected
+                        ? "is-selected"
+                        : ""
+                    }`}
+                    onClick={() =>
+                      handleSortChange(option.value)
+                    }
+                    role="option"
+                    aria-selected={isSelected}
+                  >
+                    <span className="sets-sort-option-left">
+                      <span className="sets-sort-arrow">
+                        {optionDirection === "asc"
+                          ? "↑"
+                          : "↓"}
+                      </span>
+
+                      <span>
+                        {option.label}
+                      </span>
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 

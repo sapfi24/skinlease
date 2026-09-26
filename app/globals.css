@@ -10017,55 +10017,161 @@ a {
 }
 
 .sets-sort {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  min-width: 240px;
+  position: relative;
+  width: 280px;
+  flex-shrink: 0;
 }
 
-.sets-sort label {
+.sets-sort-label {
+  display: block;
+  margin-bottom: 9px;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.42);
 }
 
-.sets-sort select {
-  appearance: none;
+.sets-sort-trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  height: 46px;
-  padding: 0 42px 0 15px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  min-height: 50px;
+  padding: 0 15px 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 12px;
-  background:
-    linear-gradient(45deg, transparent 50%, rgba(255,255,255,.55) 50%) calc(100% - 19px) 20px / 6px 6px no-repeat,
-    linear-gradient(135deg, rgba(255,255,255,.55) 50%, transparent 50%) calc(100% - 14px) 20px / 6px 6px no-repeat,
-    rgba(255, 255, 255, 0.04);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.94);
   font: inherit;
-  font-size: 13px;
-  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
   cursor: pointer;
+
   transition:
     border-color 0.25s ease,
-    background 0.25s ease;
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.sets-sort select:hover {
-  border-color: rgba(255, 255, 255, 0.22);
-  background:
-    linear-gradient(45deg, transparent 50%, rgba(255,255,255,.65) 50%) calc(100% - 19px) 20px / 6px 6px no-repeat,
-    linear-gradient(135deg, rgba(255,255,255,.65) 50%, transparent 50%) calc(100% - 14px) 20px / 6px 6px no-repeat,
-    rgba(255, 255, 255, 0.06);
+.sets-sort-trigger:hover,
+.sets-sort.is-open .sets-sort-trigger {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.025);
 }
 
-.sets-sort select:focus {
-  border-color: rgba(255, 255, 255, 0.3);
+.sets-sort-trigger-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
 }
 
-.sets-sort option {
-  background: #111;
+.sets-sort-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  flex: 0 0 17px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.sets-sort-chevron {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.5);
+
+  transition:
+    transform 0.25s ease;
+}
+
+.sets-sort.is-open .sets-sort-chevron {
+  transform: rotate(180deg);
+}
+
+.sets-sort-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+
+  padding: 6px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+
+  background: rgba(14, 14, 16, 0.96);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s ease;
+}
+
+.sets-sort-menu.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.sets-sort-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.sets-sort-option:hover {
+  background: rgba(255, 255, 255, 0.07);
   color: #fff;
+}
+
+.sets-sort-option.is-selected {
+  background: rgba(255, 255, 255, 0.055);
+  color: #fff;
+}
+
+.sets-sort-option-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 @media (max-width: 700px) {
@@ -10077,6 +10183,7 @@ a {
 
   .sets-sort {
     width: 100%;
-    min-width: 0;
   }
 }
+
+
