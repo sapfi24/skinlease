@@ -62,6 +62,15 @@ const reviews = [
     sourceLink: "https://t.me/skinlease/6"
   },
 
+  {
+    id: 8,
+    name: "Назар",
+    date: "Сентябрь 2026",
+    text: "Очень хороший продавец, пошел на уступки. вежливый, компетентный, да и в целом хороший собеседник. сделка прошла отлично-все быстро и грамотно. продавец ответил за секунду. очень советую!",
+    source: "Avito",
+    sourceLink: "https://www.avito.ru/moskva/igry_pristavki_i_programmy/arenda_skinov_ks2_gotovye_sety_nozhi_i_perchatki_8217400183?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJGTTdsd09kZzg4cnNtUzQwIjt9zg4Ygj8AAAA#open-reviews-list"
+  },
+
 
   
 ];

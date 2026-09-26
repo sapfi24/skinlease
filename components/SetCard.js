@@ -2,6 +2,21 @@
 
 import Link from "next/link";
 
+const monthNames = {
+  "01": "января",
+  "02": "февраля",
+  "03": "марта",
+  "04": "апреля",
+  "05": "мая",
+  "06": "июня",
+  "07": "июля",
+  "08": "августа",
+  "09": "сентября",
+  "10": "октября",
+  "11": "ноября",
+  "12": "декабря",
+};
+
 function getStatusText(status) {
   switch (status) {
     case "available":
@@ -10,6 +25,8 @@ function getStatusText(status) {
       return "В АРЕНДЕ";
     case "tradeban":
       return "ТРЕЙД БАН";
+    case "longterm":
+      return "ДОЛГОСРОЧНАЯ АРЕНДА";
     default:
       return "ДОСТУПЕН";
   }
@@ -21,14 +38,51 @@ function getStatusClass(status) {
       return "hud-status-rented";
     case "tradeban":
       return "hud-status-tradeban";
+    case "longterm":
+      return "hud-status-rented";
     default:
       return "hud-status-available";
   }
 }
 
+function formatStatusUntil(value) {
+  if (!value || typeof value !== "string") {
+    return "";
+  }
+
+  const trimmedValue = value.trim();
+
+  // Если указана дата: 27.10, 01.10, 5.09 и т.д.
+  const dateMatch = trimmedValue.match(
+    /^(\d{1,2})\.(\d{1,2})$/
+  );
+
+  if (dateMatch) {
+    const [, day, month] = dateMatch;
+
+    const monthKey = month.padStart(2, "0");
+    const monthName = monthNames[monthKey];
+
+    if (monthName) {
+      return `До ${Number(day)} ${monthName}`;
+    }
+  }
+
+  // Если указано любое другое значение —
+  // выводим его полностью как есть
+  return trimmedValue;
+}
+
 export default function SetCard({ set, index }) {
   const image = set.images?.[0];
   const moneyback = set.moneyback || "1 500 ₽";
+
+  const statusTooltip = formatStatusUntil(
+    set.statusUntil
+  );
+
+  const hasStatusTooltip =
+    set.status !== "available" && statusTooltip;
 
   return (
     <Link
@@ -55,34 +109,36 @@ export default function SetCard({ set, index }) {
           </span>
 
           <span
-  className={`hud-status-wrap ${
-    set.status === "available"
-      ? ""
-      : "has-status-tooltip"
-  }`}
->
-  <span
-    className={`hud-status ${getStatusClass(
-      set.status
-    )}`}
-    tabIndex={set.status === "available" ? -1 : 0}
-    onClick={(event) => {
-      if (set.status !== "available") {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    }}
-  >
-    <i />
-    {getStatusText(set.status)}
-  </span>
+            className={`hud-status-wrap ${
+              hasStatusTooltip
+                ? "has-status-tooltip"
+                : ""
+            }`}
+          >
+            <span
+              className={`hud-status ${getStatusClass(
+                set.status
+              )}`}
+              tabIndex={
+                set.status === "available" ? -1 : 0
+              }
+              onClick={(event) => {
+                if (set.status !== "available") {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+              }}
+            >
+              <i />
+              {getStatusText(set.status)}
+            </span>
 
-  {set.status !== "available" && set.statusUntil && (
-    <span className="status-tooltip">
-      {set.statusUntil}
-    </span>
-  )}
-</span>
+            {hasStatusTooltip && (
+              <span className="status-tooltip">
+                {statusTooltip}
+              </span>
+            )}
+          </span>
         </div>
 
         {/* Нижняя информация НА ФОТО */}
@@ -98,26 +154,26 @@ export default function SetCard({ set, index }) {
             </div>
 
             <span className="hud-arrow hud-arrow-desktop">
-  ↗
-</span>
+              ↗
+            </span>
 
-<svg
-  className="hud-arrow-mobile"
-  width="18"
-  height="18"
-  viewBox="0 0 14 14"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
-  aria-hidden="true"
->
-  <path
-    d="M3 11L11 3M5 3H11V9"
-    stroke="currentColor"
-    strokeWidth="1.6"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
-</svg>
+            <svg
+              className="hud-arrow-mobile"
+              width="18"
+              height="18"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 11L11 3M5 3H11V9"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </div>
         </div>
       </div>
