@@ -11,9 +11,9 @@ const sets = [
   tag: "Идеально для снайпера",
   status: "tradeban",
   statusUntil: "20.10",
-  price: "3 250 ₽",
+  price: "4 250 ₽",
   duration: "6 дней",
-  moneyback: "1 500 ₽",
+  moneyback: "2 250 ₽",
 
   description:
     "★ Складной нож | Волны (Factory New) + ★ Спортивные перчатки | Порок (Field-Tested)",
@@ -40,9 +40,9 @@ const sets = [
     tag: "NEW",
     status: "rented",
     statusUntil: "Долгосрочная аренда",
-    price: "3 250 ₽",
+    price: "4 250 ₽",
     duration: "6 дней",
-    moneyback: "1 500 ₽",
+    moneyback: "2 250 ₽",
 
     description:
       "★ Штык-нож М9 | Зуб тигра (Factory New) + ★ Спортивные перчатки | Омега (Field-Tested)",
@@ -68,9 +68,9 @@ const sets = [
     tag: "С готовым инвентарём",
     status: "rented",
     statusUntil: "Долгосрочная аренда",
-    price: "3 500 ₽",
+    price: "4 500 ₽",
     duration: "6 дней",
-    moneyback: "1 500 ₽",
+    moneyback: "2 500 ₽",
 
     description:
       "★ Нож-бабочка | Чистая вода (MW) + ★ Мотоциклетные перчатки | Полигон (FT)",
@@ -113,8 +113,8 @@ const sets = [
     status: "tradeban",
     statusUntil: "05.10",
     tag: "Идеально чистый",
-    price: "2 700 ₽",
-    moneyback: "1 300 ₽",
+    price: "3 500 ₽",
+    moneyback: "1 700 ₽",
     duration: "6 дней",
 
     description:
@@ -140,9 +140,9 @@ const sets = [
     tag: "С дополнительными скинами",
     statusUntil: "01.10",
     status: "rented",
-    price: "2 250 ₽",
+    price: "2 850 ₽",
     duration: "6 дней",
-    moneyback: "1 250 ₽",
+    moneyback: "1 750 ₽",
 
     description:
       "★ Скелетный нож | Вороненая сталь (Minimal Wear) + ★ Перчатки спецназа | Полевой агент (Field-Tested)",
@@ -177,12 +177,12 @@ const sets = [
     tag: "Готовый инвентарь",
     status: "tradeban",
     statusUntil: "28.09",
-    price: "3 500 ₽",
+    price: "4 750 ₽",
     duration: "6 дней",
-    moneyback: "2 000 ₽",
+    moneyback: "3 250 ₽",
 
     description:
-      "★ Butterfly Knife | Black Laminate (Minimal Wear) + ★ Moto Gloves | Smoke Out (Field-Tested)",
+      "★ Butterfly Knife | Black Laminate (Minimal Wear) + ★ Moto Gloves | Smoke Out (Field-Tested) \n\n Сет предоставляется только при условии самостоятельной отмены трейда с вашей стороны. После завершения аренды необходимо отменить обмен самостоятельно. В случае отказа от отмены вы потеряете возможность получить обратно 3 250 ₽ (манибэк), а также будете внесены в чёрный список сайта и лишены возможности дальнейшей аренды. ",
 
     value: "≈ 68 520 ₽",
 
@@ -228,8 +228,8 @@ const sets = [
     status: "rented",
     statusUntil: "Долгосрочная аренда",
     tag: "Идеальное сочетание",
-    price: "4 250 ₽",
-    moneyback: "2 250 ₽",
+    price: "5 750 ₽",
+    moneyback: "2 750 ₽",
     duration: "6 дней",
 
     description:
