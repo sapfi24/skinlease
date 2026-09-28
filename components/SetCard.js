@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 
 const monthNames = {
   "01": "января",
@@ -85,21 +84,9 @@ export default function SetCard({ set, index }) {
     set.status !== "available" && statusTooltip;
 
   return (
-    <Link
-      href={`/sets/${set.slug}`}
-      className="hud-set-card"
-      onClick={() => {
-        // Исправление только для мобильных устройств:
-        // при переходе со страницы, где пользователь
-        // находился ниже, всегда открываем страницу сета сверху.
-        if (window.innerWidth <= 700) {
-          window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "auto",
-          });
-        }
-      }}
+    <a
+  href={`/sets/${set.slug}`}
+  className="hud-set-card"
     >
       {/* ФОТО И ИНФОРМАЦИЯ */}
       <div
@@ -211,6 +198,6 @@ export default function SetCard({ set, index }) {
           <strong>{moneyback}</strong>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
