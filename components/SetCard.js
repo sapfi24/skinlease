@@ -88,6 +88,18 @@ export default function SetCard({ set, index }) {
     <Link
       href={`/sets/${set.slug}`}
       className="hud-set-card"
+      onClick={() => {
+        // Исправление только для мобильных устройств:
+        // при переходе со страницы, где пользователь
+        // находился ниже, всегда открываем страницу сета сверху.
+        if (window.innerWidth <= 700) {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "auto",
+          });
+        }
+      }}
     >
       {/* ФОТО И ИНФОРМАЦИЯ */}
       <div
@@ -180,7 +192,6 @@ export default function SetCard({ set, index }) {
 
       {/* ОТДЕЛЬНАЯ НИЖНЯЯ ПОЛОСА */}
       <div className="hud-footer">
-
         <div className="hud-footer-item">
           <span>АРЕНДА</span>
           <strong>{set.price}</strong>
@@ -199,7 +210,6 @@ export default function SetCard({ set, index }) {
           <span>МАНИБЭК</span>
           <strong>{moneyback}</strong>
         </div>
-
       </div>
     </Link>
   );
