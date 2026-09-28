@@ -175,7 +175,7 @@ const sets = [
     slug: "darkwhite",
     name: "Чёрно-белый сет",
     tag: "Готовый инвентарь",
-    status: "tradeban",
+    status: "available",
     statusUntil: "28.09",
     price: "4 750 ₽",
     duration: "6 дней",
