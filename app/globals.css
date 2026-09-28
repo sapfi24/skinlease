@@ -10499,3 +10499,25 @@ a {
   }
 
 }
+
+@media (max-width: 700px) {
+  .mobile-set-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .mobile-set-top .detail-tag {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: 70%;
+  }
+
+  .mobile-set-top .detail-available {
+    flex: 0 0 auto !important;
+    width: auto !important;
+  }
+}
