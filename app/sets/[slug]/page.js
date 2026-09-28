@@ -50,7 +50,6 @@ export default async function SetPage({ params }) {
 
   return (
     <>
-
       <main className="set-page">
         <div className="container">
 
@@ -69,10 +68,38 @@ export default async function SetPage({ params }) {
                 ← Все сеты
               </Link>
 
+              {/* МОБИЛЬНЫЕ ТЕГИ */}
+              <div className="mobile-set-top">
+
+                <span className="detail-tag">
+                  {set.tag}
+                </span>
+
+                <span
+                  className={`detail-available status-${set.status || "available"}`}
+                >
+                  {getStatusText(set.status)}
+                </span>
+
+              </div>
+
               <SetGallery
                 images={set.images}
                 name={set.name}
               />
+
+              {/* МОБИЛЬНЫЕ НАЗВАНИЕ И ОПИСАНИЕ */}
+              <div className="mobile-set-heading">
+
+                <h1>
+                  {set.name}
+                </h1>
+
+                <p className="set-description">
+                  {set.description}
+                </p>
+
+              </div>
 
               {/* ДЕТАЛИ АРЕНДЫ ПОД ФОТО */}
 
