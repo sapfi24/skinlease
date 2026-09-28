@@ -49,142 +49,57 @@ export default async function SetPage({ params }) {
   const moneyback = set.moneyback || "1 500 ₽";
 
   return (
-    <>
-      <main className="set-page">
-        <div className="container">
+    <main className="set-page">
+      <div className="container">
 
-          <div className="set-page-grid">
+        <div className="set-page-grid">
+
+          {/* =========================
+              ЛЕВАЯ КОЛОНКА
+          ========================== */}
+
+          <div className="set-left">
+
+            <Link
+              href="/sets"
+              className="back-link"
+            >
+              ← Все сеты
+            </Link>
 
             {/* =========================
-                ЛЕВАЯ КОЛОНКА
+                МОБИЛЬНЫЕ ТЕГИ
             ========================== */}
 
-            <div className="set-left">
+            <div className="mobile-set-top">
 
-              <Link
-                href="/sets"
-                className="back-link"
+              <span className="detail-tag">
+                {set.tag}
+              </span>
+
+              <span
+                className={`detail-available status-${set.status || "available"}`}
               >
-                ← Все сеты
-              </Link>
-
-              {/* МОБИЛЬНЫЕ ТЕГИ */}
-              <div className="mobile-set-top">
-
-                <span className="detail-tag">
-                  {set.tag}
-                </span>
-
-                <span
-                  className={`detail-available status-${set.status || "available"}`}
-                >
-                  {getStatusText(set.status)}
-                </span>
-
-              </div>
-
-              <SetGallery
-                images={set.images}
-                name={set.name}
-              />
-
-              {/* МОБИЛЬНЫЕ НАЗВАНИЕ И ОПИСАНИЕ */}
-              <div className="mobile-set-heading">
-
-                <h1>
-                  {set.name}
-                </h1>
-
-                <p className="set-description">
-                  {set.description}
-                </p>
-
-              </div>
-
-              {/* ДЕТАЛИ АРЕНДЫ ПОД ФОТО */}
-
-              <section className="rent-details-card">
-
-                <div className="rent-details-header">
-                  <div>
-                    <div className="section-kicker">
-                      ДЕТАЛИ АРЕНДЫ
-                    </div>
-
-                    <h2>
-                      Условия
-                    </h2>
-                  </div>
-                </div>
-
-                <div className="rent-detail-row">
-                  <span>
-                    Стоимость аренды
-                  </span>
-
-                  <strong>
-                    {set.price}
-                  </strong>
-                </div>
-
-                <div className="rent-detail-row">
-                  <span>
-                    Срок аренды
-                  </span>
-
-                  <strong>
-                    {set.duration}
-                  </strong>
-                </div>
-
-                <div className="rent-detail-row">
-                  <span>
-                    Стоимость сета (включая скины)
-                  </span>
-
-                  <strong>
-                    {set.value || "—"}
-                  </strong>
-                </div>
-
-                <div className="rent-detail-row">
-                  <span>
-                    Манибэк
-                  </span>
-
-                  <strong className="green">
-                    {moneyback}
-                  </strong>
-                </div>
-
-                <div className="rent-detail-note">
-                  При самостоятельной отмене трейда вам
-                  возвращается {moneyback}
-                </div>
-
-              </section>
+                {getStatusText(set.status)}
+              </span>
 
             </div>
 
             {/* =========================
-                ПРАВАЯ КОЛОНКА
+                ГАЛЕРЕЯ
             ========================== */}
 
-            <div className="set-details">
+            <SetGallery
+              images={set.images}
+              name={set.name}
+            />
 
-              <div className="set-detail-top">
+            {/* =========================
+                МОБИЛЬНОЕ НАЗВАНИЕ
+                И ОПИСАНИЕ
+            ========================== */}
 
-                <span className="detail-tag">
-                  {set.tag}
-                </span>
-
-                <span
-                  className={`detail-available status-${set.status || "available"}`}
-                >
-                  {getStatusText(set.status)}
-                </span>
-
-              </div>
+            <div className="mobile-set-heading">
 
               <h1>
                 {set.name}
@@ -194,9 +109,14 @@ export default async function SetPage({ params }) {
                 {set.description}
               </p>
 
-              {/* =========================
-                  ЦЕНА
-              ========================== */}
+            </div>
+
+            {/* =========================
+                МОБИЛЬНАЯ ЦЕНА
+                И TELEGRAM
+            ========================== */}
+
+            <div className="mobile-rent-summary">
 
               <div className="price-card">
 
@@ -239,10 +159,6 @@ export default async function SetPage({ params }) {
                 отмене трейда вам возвращается {moneyback}
               </div>
 
-              {/* =========================
-                  КНОПКА
-              ========================== */}
-
               <a
                 href="https://t.me/sapfiofcl"
                 target="_blank"
@@ -257,108 +173,286 @@ export default async function SetPage({ params }) {
                 Без залога · Оформление через Telegram
               </div>
 
-              {/* =========================
-                  ПРЕИМУЩЕСТВА
-              ========================== */}
+            </div>
 
-              <div className="rent-features">
+            {/* =========================
+                ДЕТАЛИ АРЕНДЫ
+            ========================== */}
 
-                <div className="rent-feature">
+            <section className="rent-details-card">
 
-                  <span className="rent-icon">
-                    ✓
-                  </span>
+              <div className="rent-details-header">
+                <div>
 
-                  <div>
-                    <strong>
-                      Без залога
-                    </strong>
-
-                    <p>
-                      Дополнительный залог не требуется
-                    </p>
+                  <div className="section-kicker">
+                    ДЕТАЛИ АРЕНДЫ
                   </div>
+
+                  <h2>
+                    Условия
+                  </h2>
 
                 </div>
+              </div>
 
-                <div className="rent-feature">
+              <div className="rent-detail-row">
 
-                  <span className="rent-icon">
-                    ₽
-                  </span>
+                <span>
+                  Стоимость аренды
+                </span>
 
-                  <div>
-                    <strong>
-                      Лучшая цена
-                    </strong>
+                <strong>
+                  {set.price}
+                </strong>
 
-                    <p>
-                      Мы предлагаем лучшие цены на аренду сетов
-                    </p>
-                  </div>
+              </div>
 
+              <div className="rent-detail-row">
+
+                <span>
+                  Срок аренды
+                </span>
+
+                <strong>
+                  {set.duration}
+                </strong>
+
+              </div>
+
+              <div className="rent-detail-row">
+
+                <span>
+                  Стоимость сета (включая скины)
+                </span>
+
+                <strong>
+                  {set.value || "—"}
+                </strong>
+
+              </div>
+
+              <div className="rent-detail-row">
+
+                <span>
+                  Манибэк
+                </span>
+
+                <strong className="green">
+                  {moneyback}
+                </strong>
+
+              </div>
+
+              <div className="rent-detail-note">
+                При самостоятельной отмене трейда вам
+                возвращается {moneyback}
+              </div>
+
+            </section>
+
+          </div>
+
+          {/* =========================
+              ПРАВАЯ КОЛОНКА
+              DESKTOP
+          ========================== */}
+
+          <div className="set-details">
+
+            <div className="set-detail-top">
+
+              <span className="detail-tag">
+                {set.tag}
+              </span>
+
+              <span
+                className={`detail-available status-${set.status || "available"}`}
+              >
+                {getStatusText(set.status)}
+              </span>
+
+            </div>
+
+            <h1>
+              {set.name}
+            </h1>
+
+            <p className="set-description">
+              {set.description}
+            </p>
+
+            {/* =========================
+                DESKTOP ЦЕНА
+            ========================== */}
+
+            <div className="price-card">
+
+              <div className="main-price">
+
+                <span className="price-label">
+                  ОПЛАТА ЗА АРЕНДУ
+                </span>
+
+                <div className="price-value">
+                  {set.price}
                 </div>
 
-                <div className="rent-feature">
+                <span className="price-period">
+                  за {set.duration}
+                </span>
 
-                  <span className="rent-icon">
-                    @
-                  </span>
+              </div>
 
-                  <div>
-                    <strong>
-                      Поддержка в Telegram
-                    </strong>
+              <div className="moneyback">
 
-                    <p>
-                      Оформление и связь напрямую
-                    </p>
-                  </div>
+                <span className="moneyback-label">
+                  МАНИБЭК
+                </span>
+
+                <strong>
+                  {moneyback}
+                </strong>
+
+                <span className="moneyback-text">
+                  при самостоятельной отмене
+                </span>
+
+              </div>
+
+            </div>
+
+            <div className="price-explanation">
+              Вы оплачиваете {set.price}. При самостоятельной
+              отмене трейда вам возвращается {moneyback}
+            </div>
+
+            {/* =========================
+                DESKTOP КНОПКА
+            ========================== */}
+
+            <a
+              href="https://t.me/sapfiofcl"
+              target="_blank"
+              rel="noreferrer"
+              className="rent-button"
+            >
+              Арендовать этот сет
+              <span>&#8599;</span>
+            </a>
+
+            <div className="rent-note">
+              Без залога · Оформление через Telegram
+            </div>
+
+            {/* =========================
+                ПРЕИМУЩЕСТВА
+            ========================== */}
+
+            <div className="rent-features">
+
+              <div className="rent-feature">
+
+                <span className="rent-icon">
+                  ✓
+                </span>
+
+                <div>
+
+                  <strong>
+                    Без залога
+                  </strong>
+
+                  <p>
+                    Дополнительный залог не требуется
+                  </p>
 
                 </div>
 
               </div>
 
-              {/* =========================
-                  СОСТАВ
-              ========================== */}
+              <div className="rent-feature">
 
-              {items.length > 0 && (
-                <>
-                  <div className="detail-divider" />
+                <span className="rent-icon">
+                  ₽
+                </span>
 
-                  <section className="detail-section">
+                <div>
 
-                    <div className="detail-section-heading">
+                  <strong>
+                    Лучшая цена
+                  </strong>
 
-                      <div>
-                        <div className="section-kicker">
-                          СОСТАВ
-                        </div>
+                  <p>
+                    Мы предлагаем лучшие цены на аренду сетов
+                  </p>
 
-                        <h2>
-                          Что входит в сет
-                        </h2>
+                </div>
+
+              </div>
+
+              <div className="rent-feature">
+
+                <span className="rent-icon">
+                  @
+                </span>
+
+                <div>
+
+                  <strong>
+                    Поддержка в Telegram
+                  </strong>
+
+                  <p>
+                    Оформление и связь напрямую
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* =========================
+                СОСТАВ
+            ========================== */}
+
+            {items.length > 0 && (
+              <>
+                <div className="detail-divider" />
+
+                <section className="detail-section">
+
+                  <div className="detail-section-heading">
+
+                    <div>
+
+                      <div className="section-kicker">
+                        СОСТАВ
                       </div>
 
-                      <span className="items-count">
-                        {getItemsText(items.length)}
-                      </span>
+                      <h2>
+                        Что входит в сет
+                      </h2>
 
                     </div>
 
-                    <ItemsList items={items} />
+                    <span className="items-count">
+                      {getItemsText(items.length)}
+                    </span>
 
-                  </section>
-                </>
-              )}
+                  </div>
 
-            </div>
+                  <ItemsList items={items} />
+
+                </section>
+              </>
+            )}
 
           </div>
 
         </div>
-      </main>
-    </>
+
+      </div>
+    </main>
   );
 }

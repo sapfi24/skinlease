@@ -10386,3 +10386,116 @@ a {
     display: none;
   }
 }
+
+@media (max-width: 700px) {
+
+  .set-page-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .set-left,
+  .set-details {
+    display: block;
+    width: 100%;
+  }
+
+  /* =========================
+     ТЕГИ
+  ========================== */
+
+  .mobile-set-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .mobile-set-top .detail-tag {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mobile-set-top .detail-available {
+    flex-shrink: 0;
+  }
+
+  /* Убираем десктопные теги */
+  .set-details > .set-detail-top {
+    display: none !important;
+  }
+
+  /* Убираем десктопные название и описание */
+  .set-details > h1,
+  .set-details > .set-description {
+    display: none !important;
+  }
+
+  /* =========================
+     МОБИЛЬНОЕ НАЗВАНИЕ
+  ========================== */
+
+  .mobile-set-heading {
+    display: block;
+    width: 100%;
+    margin-top: 26px;
+    margin-bottom: 30px;
+  }
+
+  .mobile-set-heading h1 {
+    margin: 0 0 18px;
+  }
+
+  .mobile-set-heading .set-description {
+    margin: 0;
+  }
+
+  /* =========================
+     МОБИЛЬНАЯ ЦЕНА
+  ========================== */
+
+  .mobile-rent-summary {
+    display: block;
+    width: 100%;
+  }
+
+  /* Убираем десктопные цену,
+     пояснение и кнопку */
+  .set-details > .price-card,
+  .set-details > .price-explanation,
+  .set-details > .rent-button,
+  .set-details > .rent-note {
+    display: none !important;
+  }
+
+  /* =========================
+     ДЕТАЛИ АРЕНДЫ
+  ========================== */
+
+  .rent-details-card {
+    width: 100%;
+    margin-top: 34px;
+  }
+
+  /* =========================
+     ОСТАЛЬНОЕ
+  ========================== */
+
+  .rent-features,
+  .detail-divider,
+  .detail-section {
+    width: 100%;
+  }
+}
+
+@media (min-width: 701px) {
+
+  .mobile-set-top,
+  .mobile-set-heading,
+  .mobile-rent-summary {
+    display: none !important;
+  }
+
+}
