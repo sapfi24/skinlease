@@ -33,6 +33,20 @@ function getStatusClass(status) {
   }
 }
 
+function parseMoney(value) {
+  if (!value) {
+    return 0;
+  }
+
+  const digits = String(value).replace(/\D/g, "");
+
+  return digits ? Number(digits) : 0;
+}
+
+function formatMoney(value) {
+  return `${Number(value).toLocaleString("ru-RU")} ₽`;
+}
+
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const touchStartX = useRef(0);
@@ -177,40 +191,46 @@ export default function Hero() {
 
         </div>
 
-
         <div className="hero-visual-simple">
 
           {carouselSets.length > 0 ? (
             <div
-  className="hero-carousel"
-  onTouchStart={(e) => {
-    touchStartX.current =
-      e.touches[0].clientX;
-  }}
-  onTouchEnd={(e) => {
-    const diff =
-      touchStartX.current -
-      e.changedTouches[0].clientX;
+              className="hero-carousel"
+              onTouchStart={(e) => {
+                touchStartX.current =
+                  e.touches[0].clientX;
+              }}
+              onTouchEnd={(e) => {
+                const diff =
+                  touchStartX.current -
+                  e.changedTouches[0].clientX;
 
-    if (Math.abs(diff) < 50) return;
+                if (Math.abs(diff) < 50) return;
 
-    if (diff > 0) {
-      setActiveIndex((current) =>
-        (current + 1) %
-        carouselSets.length
-      );
-    } else {
-      setActiveIndex((current) =>
-        current === 0
-          ? carouselSets.length - 1
-          : current - 1
-      );
-    }
-  }}
->
+                if (diff > 0) {
+                  setActiveIndex((current) =>
+                    (current + 1) %
+                    carouselSets.length
+                  );
+                } else {
+                  setActiveIndex((current) =>
+                    current === 0
+                      ? carouselSets.length - 1
+                      : current - 1
+                  );
+                }
+              }}
+            >
 
               {carouselSets.map((set, index) => {
                 const position = getRelativePosition(index);
+
+                const price = parseMoney(set.price);
+                const moneyback = parseMoney(set.moneyback);
+                const actualPrice = Math.max(
+                  0,
+                  price - moneyback
+                );
 
                 return (
                   <Link
@@ -252,12 +272,29 @@ export default function Hero() {
                           SKINLEASE SET
                         </span>
 
-                        <h2>{set.name}</h2>
+                        <h2>
+                          {set.name}
+                        </h2>
 
                         <div className="hero-carousel-price">
-                          <strong>{set.price}</strong>
-                          <span>/ {set.duration}</span>
+
+                          <span className="hero-carousel-price-old">
+                            {formatMoney(price)}
+                          </span>
+
+                          <strong>
+                            {formatMoney(actualPrice)}
+                          </strong>
+
+                          <span className="hero-carousel-price-duration">
+                            / {set.duration}
+                          </span>
+
                         </div>
+
+                        <span className="hero-carousel-price-note">
+                          при самостоятельной отмене трейда
+                        </span>
                       </div>
 
                       <span className="hero-carousel-arrow">
