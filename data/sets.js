@@ -300,7 +300,7 @@ const sets = [
     name: "Камуфляжный сет",
     tag: "Бесплатно",
     status: "tradeban",
-    statusUntil: "01.10",
+    statusUntil: "09.10",
     price: "500 ₽",
     duration: "6 дней",
     moneyback: "500 ₽",
