@@ -78,8 +78,6 @@ const sets = [
     value: "≈ 72 150 ₽",
 
     items: [
-      "★ Нож-бабочка | Чистая вода",
-      "★ Мотоциклетные перчатки | Полигон",
       "AWP | Солнце в знаке Льва",
       "M4A1-S | Ночной кошмар",
       "M4A4 | Безлюдный космос",
@@ -150,16 +148,14 @@ const sets = [
     value: "≈ 36 860 ₽",
 
     items: [
-      "★ Скелетный нож | Вороненая сталь",
-      "★ Перчатки спецназа | Полевой агент",
-      "M4A1-S | Помой меня пж",
-      "USP-S | Бесшумный выстрел",
-      "Desert Eagle | Недовольство",
-      "M4A4 | Рваный морской камуфляж",
-      "StatTrak™ SSG 08 | Мейнфрейм 001",
-      "Glock-18 | Океаническая топография",
-      "MP9 | Синий буйвол",
-      "SG 553 | Ночной камуфляж",
+      "M4A1-S | Wash me plz",
+      "USP-S | Silent Shot",
+      "Desert Eagle | Tilted",
+      "M4A4 | Naval Shred Camo",
+      "StatTrak™ SSG 08 | Mainframe 001",
+      "Glock-18 | Ocean Topo",
+      "MP9 | Buff Blue",
+      "SG 553 | Night Camo",
     ],
 
     images: [
@@ -187,8 +183,6 @@ const sets = [
     value: "≈ 68 520 ₽",
 
     items: [
-      "★ Butterfly Knife | Black Laminate (Minimal Wear)",
-      "★ Moto Gloves | Smoke Out",
       "AWP | Конец",
       "AK-47 | Прорыв",
       "UMP-45 | Арктический волк",
@@ -266,8 +260,6 @@ const sets = [
     value: "≈ 210 550 ₽",
 
     items: [
-      "★ Butterfly Knife | Slaughter",
-      "★ Sport Gloves | Occult",
       "Desert Eagle | Fennec Fox",
       "AWP | Queen's Gambit",
       "M4A4 | The Emperor",
@@ -320,6 +312,112 @@ const sets = [
       "/sets/biba/2.png",
       "/sets/biba/3.png",
       "/sets/biba/4.png",
+    ]
+  },
+
+  {
+    slug: "tiger",
+    name: "Тигриный сет",
+    tag: "Готовый инвентарь",
+    status: "tradeban",
+    statusUntil: "09.10",
+    price: "3 150 ₽",
+    duration: "6 дней",
+    moneyback: "1 850 ₽",
+
+    description:
+      "★ Stiletto Knife | Tiger Tooth (Factory New) + ★ Sport Gloves | Omega (Field-Tested)",
+
+    value: "≈ 44 120 ₽",
+
+    items: [
+      "Desert Eagle | Conspiracy",
+      "Galil AR | Black Sand",
+      "M4A1-S | Nitro",
+      "Tec-9 | Mummy's Rot",
+      "M4A4 | Dark Operative",
+      "AK-47 | Elite Build",
+      "Glock-18 | Wraiths",
+      "AWP | Phobos",
+      "Dual Berettas | Dualing Dragons",
+      "USP-S | Desert Tactical",
+      "SSG 08 | Slashed",
+      "MP7 | Armor Core",
+      "MAC-10 | Light Box",
+      "MP9 | Broken Record",
+      "Sawed-Off | Spirit Board",
+      "P250 | Bullfrog",
+      "FAMAS | Corp Defense",
+      "Five-SeveN | Silver Quartz",
+      "Nova | Dark Sigil",
+      "MAG-7 | Foresight",
+    ],
+
+    images: [
+      "/sets/tiger/1.png",
+      "/sets/tiger/2.png",
+      "/sets/tiger/3.png",
+      "/sets/tiger/4.png",
+      "/sets/tiger/5.png",
+      "/sets/tiger/6.png",
+    ]
+  },
+
+  {
+    slug: "doppler3",
+    name: "Кристаллический сет",
+    tag: "Идеальное сочетание",
+    status: "tradeban",
+    statusUntil: "23.10",
+    price: "4 250 ₽",
+    duration: "6 дней",
+    moneyback: "2 350 ₽",
+
+    description:
+      "★ M9 Bayonet | Doppler Phase 3 (Factory New) + ★ Moto Gloves | Polygon (Field-Tested)",
+
+    value: "≈ 90 050 ₽",
+
+    items: [
+       "★ M9 Bayonet | Doppler Phase 3",
+       "★ Moto Gloves | Polygon",
+    ],
+
+    images: [
+      "/sets/doppler3/1.png",
+      "/sets/doppler3/2.png",
+    ]
+  },
+
+  {
+    slug: "purple",
+    name: "Фиолетовый сет",
+    tag: "С дополнительными скинами",
+    status: "tradeban",
+    statusUntil: "23.10",
+    price: "4 250 ₽",
+    duration: "6 дней",
+    moneyback: "2 350 ₽",
+
+    description:
+      "★ Butterfly Knife | Freehand (Minimal Wear) + ★ Driver Gloves | Imperial Plaid (Field-Tested)",
+
+    value: "≈ 69 170 ₽",
+
+    items: [
+       "AK-47 | Midnight Laminate",
+       "Glock-18 | Shinobu",
+       "M4A1-S | Black Lotus",
+       "USP-S | Sleeping Potion",
+       "Desert Eagle | Firebreathing",
+    ],
+
+    images: [
+      "/sets/purple/1.png",
+      "/sets/purple/2.png",
+      "/sets/purple/3.png",
+      "/sets/purple/4.png",
+      "/sets/purple/5.png",
     ]
   },
 
