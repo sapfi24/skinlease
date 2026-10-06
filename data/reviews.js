@@ -80,6 +80,15 @@ const reviews = [
     sourceLink: "https://www.avito.ru/moskva/igry_pristavki_i_programmy/arenda_skinov_ks2_gotovye_sety_nozhi_i_perchatki_8217400183?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJGTTdsd09kZzg4cnNtUzQwIjt9zg4Ygj8AAAA#open-reviews-list"
   },
 
+  {
+    id: 10,
+    name: "Артём",
+    date: "Октябрь 2026",
+    text: "Отличный продавец, арендовал бабочку с перчатками и все прошло успешно, рассказал объяснил как все происходит и даже когда я облажался с отменой трейда, не стал грубить а вежливо ответил, в общем рекомендую однозначно если желаете побегать с красивыми скинчикаии здесь вас не обманут рекомендую!!!",
+    source: "Avito",
+    sourceLink: "https://www.avito.ru/moskva/igry_pristavki_i_programmy/arenda_skinov_ks2_gotovye_sety_nozhi_i_perchatki_8217400183?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJGTTdsd09kZzg4cnNtUzQwIjt9zg4Ygj8AAAA#open-reviews-list"
+  },
+
 
   
 ];
