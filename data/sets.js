@@ -108,8 +108,8 @@ const sets = [
   {
     slug: "snow",
     name: "Снежный сет",
-    status: "available",
-    statusUntil: "05.10",
+    status: "rented",
+    statusUntil: "12.10",
     tag: "Идеально чистый",
     price: "3 500 ₽",
     moneyback: "1 700 ₽",
