@@ -219,8 +219,8 @@ const sets = [
   {
     slug: "doppler4",
     name: "Волнистое облако",
-    status: "available",
-    statusUntil: "Долгосрочная аренда",
+    status: "rented",
+    statusUntil: "08.11",
     tag: "Идеальное сочетание",
     price: "5 750 ₽",
     moneyback: "2 750 ₽",
