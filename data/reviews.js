@@ -89,6 +89,15 @@ const reviews = [
     sourceLink: "https://www.avito.ru/moskva/igry_pristavki_i_programmy/arenda_skinov_ks2_gotovye_sety_nozhi_i_perchatki_8217400183?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJGTTdsd09kZzg4cnNtUzQwIjt9zg4Ygj8AAAA#open-reviews-list"
   },
 
+  {
+    id: 11,
+    name: "Milex",
+    date: "Октябрь 2026",
+    text: "все пришло кутяк!",
+    source: "FunPay",
+    sourceLink: "https://funpay.com/users/3664170/"
+  },
+
 
   
 ];
