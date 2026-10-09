@@ -11,9 +11,9 @@ const sets = [
   tag: "Идеально для снайпера",
   status: "tradeban",
   statusUntil: "20.10",
-  price: "4 250 ₽",
+  price: "3 850 ₽",
   duration: "6 дней",
-  moneyback: "2 250 ₽",
+  moneyback: "1 850 ₽",
 
   description:
     "★ Складной нож | Волны (Factory New) + ★ Спортивные перчатки | Порок (Field-Tested)",
@@ -111,8 +111,8 @@ const sets = [
     status: "rented",
     statusUntil: "12.10",
     tag: "Идеально чистый",
-    price: "3 500 ₽",
-    moneyback: "1 700 ₽",
+    price: "3 200 ₽",
+    moneyback: "1 400 ₽",
     duration: "6 дней",
 
     description:
@@ -173,9 +173,9 @@ const sets = [
     tag: "Готовый инвентарь",
     status: "tradeban",
     statusUntil: "06.11",
-    price: "4 750 ₽",
+    price: "4 250 ₽",
     duration: "6 дней",
-    moneyback: "3 250 ₽",
+    moneyback: "3 000 ₽",
 
     description:
       "★ Butterfly Knife | Black Laminate (Minimal Wear) + ★ Moto Gloves | Smoke Out (Field-Tested) \n\n Сет предоставляется только при условии самостоятельной отмены трейда с вашей стороны. После завершения аренды необходимо отменить обмен самостоятельно. В случае отказа от отмены вы потеряете возможность получить обратно 3 250 ₽ (манибэк), а также будете внесены в чёрный список сайта и лишены возможности дальнейшей аренды. ",
@@ -222,8 +222,8 @@ const sets = [
     status: "rented",
     statusUntil: "08.10",
     tag: "Идеальное сочетание",
-    price: "5 750 ₽",
-    moneyback: "2 750 ₽",
+    price: "5 200 ₽",
+    moneyback: "2 200 ₽",
     duration: "6 дней",
 
     description:
@@ -321,9 +321,9 @@ const sets = [
     tag: "Готовый инвентарь",
     status: "tradeban",
     statusUntil: "09.10",
-    price: "3 150 ₽",
+    price: "2 850 ₽",
     duration: "6 дней",
-    moneyback: "1 850 ₽",
+    moneyback: "1 650 ₽",
 
     description:
       "★ Stiletto Knife | Tiger Tooth (Factory New) + ★ Sport Gloves | Omega (Field-Tested)",
@@ -371,7 +371,7 @@ const sets = [
     statusUntil: "23.10",
     price: "4 250 ₽",
     duration: "6 дней",
-    moneyback: "2 350 ₽",
+    moneyback: "2 250 ₽",
 
     description:
       "★ M9 Bayonet | Doppler Phase 3 (Factory New) + ★ Moto Gloves | Polygon (Field-Tested)",
@@ -397,7 +397,7 @@ const sets = [
     statusUntil: "23.10",
     price: "4 250 ₽",
     duration: "6 дней",
-    moneyback: "2 350 ₽",
+    moneyback: "2 250 ₽",
 
     description:
       "★ Butterfly Knife | Freehand (Minimal Wear) + ★ Driver Gloves | Imperial Plaid (Field-Tested)",
