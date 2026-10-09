@@ -319,7 +319,7 @@ const sets = [
     slug: "tiger",
     name: "Тигриный сет",
     tag: "Готовый инвентарь",
-    status: "tradeban",
+    status: "available",
     statusUntil: "09.10",
     price: "2 850 ₽",
     duration: "6 дней",
