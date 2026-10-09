@@ -4,9 +4,31 @@ import Footer from "../components/Footer";
 import CursorGlow from "../components/CursorGlow";
 
 export const metadata = {
+  metadataBase: new URL("https://skin-lease.online"),
+
   title: "SkinLease — аренда сетов CS2 без залога",
+
   description:
     "Аренда готовых сетов CS2 по выгодным ценам. Без залога.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "SkinLease — аренда сетов CS2 без залога",
+    description:
+      "Аренда готовых сетов CS2 по выгодным ценам. Без залога.",
+    url: "https://skin-lease.online",
+    siteName: "SkinLease",
+    locale: "ru_RU",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
