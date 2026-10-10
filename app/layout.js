@@ -6,10 +6,10 @@ import CursorGlow from "../components/CursorGlow";
 export const metadata = {
   metadataBase: new URL("https://www.skin-lease.ru"),
 
-  title: "SkinLease — аренда сетов CS2 без залога",
+  title: "SkinLease — аренда скинов CS2 без залога",
 
   description:
-    "Аренда готовых сетов CS2 по выгодным ценам. Без залога.",
+    "Аренда скинов и готовых сетов CS2 по выгодным ценам. Без залога.",
 
   robots: {
     index: true,
@@ -17,9 +17,9 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "SkinLease — аренда сетов CS2 без залога",
+    title: "SkinLease — аренда скинов CS2 без залога",
     description:
-      "Аренда готовых сетов CS2 по выгодным ценам. Без залога.",
+      "Аренда скинов и готовых сетов CS2 по выгодным ценам. Без залога.",
     url: "https://www.skin-lease.ru/",
     siteName: "SkinLease",
     locale: "ru_RU",
