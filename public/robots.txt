@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.skin-lease.online/sitemap.xml
+Sitemap: https://www.skin-lease.ru/sitemap.xml

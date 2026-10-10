@@ -4,16 +4,12 @@ import Footer from "../components/Footer";
 import CursorGlow from "../components/CursorGlow";
 
 export const metadata = {
-  metadataBase: new URL("https://skin-lease.online"),
+  metadataBase: new URL("https://www.skin-lease.ru"),
 
   title: "SkinLease — аренда сетов CS2 без залога",
 
   description:
     "Аренда готовых сетов CS2 по выгодным ценам. Без залога.",
-
-  alternates: {
-    canonical: "/",
-  },
 
   robots: {
     index: true,
@@ -24,7 +20,7 @@ export const metadata = {
     title: "SkinLease — аренда сетов CS2 без залога",
     description:
       "Аренда готовых сетов CS2 по выгодным ценам. Без залога.",
-    url: "https://skin-lease.online",
+    url: "https://www.skin-lease.ru/",
     siteName: "SkinLease",
     locale: "ru_RU",
     type: "website",
