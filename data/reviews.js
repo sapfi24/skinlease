@@ -98,6 +98,14 @@ const reviews = [
     sourceLink: "https://funpay.com/users/3664170/"
   },
 
+  {
+    id: 12,
+    name: "kl",
+    date: "Октябрь 2026",
+    text: "все прошло хорошо, продавец честный и порядочный, ничего плохого сказать не могу. цены не кусаются",
+    source: "Telegram",
+    sourceLink: "https://t.me/skinlease/6"
+  },
 
   
 ];
