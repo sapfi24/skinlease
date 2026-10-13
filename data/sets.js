@@ -394,7 +394,7 @@ const sets = [
     name: "Фиолетовый сет",
     tag: "С дополнительными скинами",
     status: "tradeban",
-    statusUntil: "23.10",
+    statusUntil: "16.10",
     price: "4 250 ₽",
     duration: "6 дней",
     moneyback: "2 250 ₽",
