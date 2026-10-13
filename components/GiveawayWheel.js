@@ -283,7 +283,6 @@ export default function GiveawayWheel({
               stroke="#737786"
               strokeWidth="3"
             />
-
             
           </svg>
         </div>
