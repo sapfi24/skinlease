@@ -7,21 +7,19 @@ export default function Header() {
 
   return (
     <header className="header">
-
       <div className="header-inner">
-
         <a href="/" className="logo">
-          <img
-            src="/logo.png"
-            alt="SkinLease"
-          />
+          <img src="/logo.png" alt="SkinLease" />
         </a>
 
         {/* ПК */}
         <nav className="nav desktop-nav">
-
           <a href="/sets" className="nav-link">
             Сеты
+          </a>
+
+          <a href="/giveaway" className="nav-link">
+            Розыгрыш
           </a>
 
           <a href="/#advantages" className="nav-link">
@@ -39,8 +37,6 @@ export default function Header() {
           <a href="/faq" className="nav-link">
             FAQ
           </a>
-
-
         </nav>
 
         {/* Мобильная кнопка */}
@@ -48,23 +44,23 @@ export default function Header() {
           type="button"
           className="mobile-menu-button"
           onClick={() => setOpen(!open)}
-          aria-label="Открыть меню"
+          aria-label={open ? "Закрыть меню" : "Открыть меню"}
+          aria-expanded={open}
         >
-          ☰
+          {open ? "✕" : "☰"}
         </button>
-
       </div>
 
       {/* Мобильное меню */}
       {open && (
         <div className="mobile-menu">
+          <a href="/sets" onClick={() => setOpen(false)}>
+            Сеты
+          </a>
 
-          <a
-  href="/sets"
-  onClick={() => setOpen(false)}
->
-  Сеты
-</a>
+          <a href="/giveaway" onClick={() => setOpen(false)}>
+            Розыгрыш
+          </a>
 
           <a
             href="/#advantages"
@@ -73,31 +69,19 @@ export default function Header() {
             Почему мы
           </a>
 
-          <a
-            href="/reviews"
-            onClick={() => setOpen(false)}
-          >
-             Отзывы
+          <a href="/reviews" onClick={() => setOpen(false)}>
+            Отзывы
           </a>
 
-          <a
-            href="/#how"
-            onClick={() => setOpen(false)}
-          >
+          <a href="/#how" onClick={() => setOpen(false)}>
             Как это работает
           </a>
 
-          <a
-            href="/faq"
-            onClick={() => setOpen(false)}
-          >
+          <a href="/faq" onClick={() => setOpen(false)}>
             FAQ
           </a>
-
-
         </div>
       )}
-
     </header>
   );
 }
