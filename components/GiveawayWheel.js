@@ -284,20 +284,12 @@ export default function GiveawayWheel({
               strokeWidth="3"
             />
 
-            <text
-              x="160"
-              y="166"
-              textAnchor="middle"
-              fontSize="17"
-              fontWeight="800"
-              fill="#FFFFFF"
-            >
-              SL
-            </text>
+            
           </svg>
         </div>
       </div>
 
+            
       <div className="giveaway-wheel-footer">
         <div className="giveaway-wheel-stat">
           <span>Участников</span>
