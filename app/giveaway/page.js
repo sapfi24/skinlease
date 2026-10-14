@@ -464,6 +464,80 @@ export default function GiveawayPage() {
           </div>
         </section>
 
+                {/* ДОПОЛНИТЕЛЬНЫЕ УСЛОВИЯ РОЗЫГРЫША */}
+        <section className="giveaway-terms">
+          <details className="giveaway-terms-details">
+            <summary className="giveaway-terms-summary">
+              <span className="giveaway-terms-icon" aria-hidden="true">
+                i
+              </span>
+
+              <span className="giveaway-terms-heading">
+                <span className="giveaway-eyebrow">
+                  ДЕТАЛИ РОЗЫГЫРША
+                </span>
+
+                <strong>Важные условия розыгрыша</strong>
+              </span>
+
+              <span
+                className="giveaway-terms-toggle"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </summary>
+
+            <div className="giveaway-terms-content">
+              <article className="giveaway-term">
+                <span className="giveaway-term-number">01</span>
+
+                <div>
+                  <h3>Билеты за аренду</h3>
+
+                  <p>
+                      При аренде с отменой со стороны SkinLease участник один
+                      раз получает билеты на текущий конкурс в зависимости от суммы аренды:
+                      например, 5 000 ₽ = 5 билетов.
+                      При последующих арендах с отменой со стороны SkinLease билеты повторно
+                      не начисляются. Дополнительные билеты можно получить 
+                      только при аренде с отменой со стороны клиента.
+                  </p>
+                </div>
+              </article>
+
+              <article className="giveaway-term">
+                <span className="giveaway-term-number">02</span>
+
+                <div>
+                  <h3>Получение приза</h3>
+
+                  <p>
+                    Приз может быть
+                    выдан в виде скина CS2 или в денежном
+                    эквиваленте переводом на карту российского
+                    банка, заранее уточняйте у организатора конкурса, в каком виде выдается приз.
+                  </p>
+                </div>
+              </article>
+
+              <article className="giveaway-term">
+                <span className="giveaway-term-number">03</span>
+
+                <div>
+                  <h3>Приз за счёт SkinLease</h3>
+
+                  <p>
+                    Приз оплачивается из прибыли SkinLease.
+                    Расходы на розыгрыш не перекладываются на
+                    участников посредством повышения цен на аренду.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </details>
+        </section>
+
       </div>
     </main>
   );

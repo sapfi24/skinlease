@@ -11932,3 +11932,227 @@ a {
 .giveaway-main-grid > :first-child {
   align-self: start;
 }
+
+
+/* ========================================
+   SKINLEASE — РАСКРЫВАЮЩИЕСЯ ПРАВИЛА
+======================================== */
+
+.giveaway-terms {
+  margin: 34px 0 16px;
+}
+
+.giveaway-terms-details {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(25, 201, 130, 0.055),
+      transparent 45%
+    ),
+    linear-gradient(145deg, #111511, #0b0d0c);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.giveaway-terms-details:hover {
+  border-color: rgba(54, 211, 153, 0.25);
+}
+
+.giveaway-terms-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 24px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.giveaway-terms-summary::-webkit-details-marker {
+  display: none;
+}
+
+.giveaway-terms-summary:focus-visible {
+  outline: 2px solid #36d399;
+  outline-offset: -4px;
+  border-radius: 16px;
+}
+
+.giveaway-terms-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border: 1px solid rgba(54, 211, 153, 0.22);
+  border-radius: 12px;
+  background: rgba(54, 211, 153, 0.08);
+  color: #36d399;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.giveaway-terms-heading {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.giveaway-terms-heading .giveaway-eyebrow {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+}
+
+.giveaway-terms-heading > strong {
+  color: #f4f7f5;
+  font-size: 19px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.giveaway-terms-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #36d399;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.giveaway-terms-details[open] .giveaway-terms-toggle {
+  transform: rotate(45deg);
+  border-color: rgba(54, 211, 153, 0.28);
+  background: rgba(54, 211, 153, 0.08);
+}
+
+.giveaway-terms-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0 24px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.giveaway-term {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-content: start;
+  gap: 12px;
+  padding: 22px 18px 22px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.giveaway-term:nth-child(even) {
+  padding-right: 0;
+  padding-left: 18px;
+}
+
+.giveaway-term-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(54, 211, 153, 0.18);
+  border-radius: 9px;
+  background: rgba(54, 211, 153, 0.06);
+  color: #36d399;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.giveaway-term h3 {
+  margin: 1px 0 9px;
+  color: #f0f4f1;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+.giveaway-term p {
+  margin: 0;
+  color: rgba(235, 241, 237, 0.72);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+@media (max-width: 650px) {
+  .giveaway-terms {
+    margin-top: 26px;
+  }
+
+  .giveaway-terms-summary {
+    gap: 12px;
+    padding: 17px 15px;
+  }
+
+  .giveaway-terms-icon {
+    width: 37px;
+    height: 37px;
+    flex-basis: 37px;
+  }
+
+  .giveaway-terms-heading .giveaway-eyebrow {
+    font-size: 10px;
+  }
+
+  .giveaway-terms-heading > strong {
+    font-size: 16px;
+  }
+
+  .giveaway-terms-toggle {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  .giveaway-terms-content {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 0 15px 6px;
+  }
+
+  .giveaway-term,
+  .giveaway-term:nth-child(even) {
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .giveaway-term:last-child {
+    border-bottom: none;
+  }
+
+  .giveaway-term h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .giveaway-term p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .giveaway-terms-details,
+  .giveaway-terms-toggle {
+    transition: none;
+  }
+}
