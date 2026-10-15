@@ -6,6 +6,11 @@
 // сверху пример
 
 const participants = [
+    {
+    id: "rasvet",
+    name: "R4svet",
+    tickets: 1,
+    },
 
 ];
 
