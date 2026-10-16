@@ -393,7 +393,7 @@ const sets = [
     slug: "purple",
     name: "Фиолетовый сет",
     tag: "С дополнительными скинами",
-    status: "tradeban",
+    status: "available",
     statusUntil: "16.10",
     price: "4 250 ₽",
     duration: "6 дней",
