@@ -9,7 +9,7 @@ const participants = [
     {
     id: "rasvet",
     name: "R4svet",
-    tickets: 1,
+    tickets: 2,
     },
 
 ];
