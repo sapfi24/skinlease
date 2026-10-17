@@ -250,9 +250,9 @@ const sets = [
     tag: "С готовым инвентарём",
     status: "available",
     statusUntil: "17.10",
-    price: "5 150 ₽",
+    price: "5 300 ₽",
     duration: "6 дней",
-    moneyback: "2 000 ₽",
+    moneyback: "2 100 ₽",
 
     description:
       "★ Butterfly Knife | Slaughter (Factory New) + ★ Sport Gloves | Occult (Field-Tested)",
