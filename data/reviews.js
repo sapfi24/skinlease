@@ -125,6 +125,15 @@ const reviews = [
     sourceLink: "https://funpay.com/users/3664170/"
   },
   
+  {
+    id: 15,
+    name: "deseroo",
+    date: "Октябрь 2026",
+    text: "очень низкие цены так то",
+    source: "FunPay",
+    sourceLink: "https://funpay.com/users/3664170/"
+  },
+
 ];
 
 export default reviews;
