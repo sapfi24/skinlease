@@ -134,6 +134,15 @@ const reviews = [
     sourceLink: "https://funpay.com/users/3664170/"
   },
 
+{
+    id: 16,
+    name: "SWM Parts",
+    date: "Октябрь 2026",
+    text: "Всё как всегда на высшем уровне!!! Не первый раз пользуюсь данным сервисом и в очередной раз персонал заставляет меня усомниться в том, что стоит ли выбирать еще кого-то кроме них.",
+    source: "Avito",
+    sourceLink: "https://www.avito.ru/brands/247c7058bc49b1408b1756cb7c189bfe/all?gdlkerfdnwq=101&page_from=from_item_card_icon&iid=8409621957&sellerId=2f180813839c82dd35cb70311f9444f2"
+  },
+
 ];
 
 export default reviews;
