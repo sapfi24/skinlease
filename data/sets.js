@@ -219,7 +219,7 @@ const sets = [
   {
     slug: "doppler4",
     name: "Волнистое облако",
-    status: "rented",
+    status: "available",
     statusUntil: "18.10",
     tag: "Идеальное сочетание",
     price: "5 200 ₽",
@@ -248,11 +248,11 @@ const sets = [
     slug: "mystic",
     name: "Мистический сет",
     tag: "С готовым инвентарём",
-    status: "rented",
+    status: "available",
     statusUntil: "17.10",
-    price: "5 150 ₽",
+    price: "5 300 ₽",
     duration: "6 дней",
-    moneyback: "2 000 ₽",
+    moneyback: "2 100 ₽",
 
     description:
       "★ Butterfly Knife | Slaughter (Factory New) + ★ Sport Gloves | Occult (Field-Tested)",
