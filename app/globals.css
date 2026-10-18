@@ -10746,7 +10746,7 @@ a {
   transform-origin: center;
   will-change: transform;
 
-  transition: transform 8.5s cubic-bezier(
+  transition: transform 8.6s cubic-bezier(
     0.12,
     0.72,
     0.12,

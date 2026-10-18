@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -28,19 +29,32 @@ function getSectorPath(startAngle, endAngle) {
 function getReadableTextRotation(angle) {
   let rotation = angle - 90;
 
-  if (rotation > 90) {
-    rotation -= 180;
-  }
-
-  if (rotation < -90) {
-    rotation += 180;
-  }
+  if (rotation > 90) rotation -= 180;
+  if (rotation < -90) rotation += 180;
 
   return rotation;
 }
 
+// Определяем победителя по сектору под верхним указателем.
+// Здесь не выбирается победитель заранее — проверяется
+// фактический угол колеса после завершения вращения.
+function getWinnerAtPointer(sectors, rotation) {
+  if (!sectors.length) return null;
+
+  const normalizedAngle =
+    ((360 - (rotation % 360)) % 360 + 360) % 360;
+
+  return (
+    sectors.find(
+      (sector) =>
+        normalizedAngle >= sector.startAngle &&
+        normalizedAngle < sector.endAngle
+    ) ?? sectors[sectors.length - 1]
+  );
+}
+
 export default function GiveawayWheel({
-  participants,
+  participants = [],
   colors = [],
 }) {
   const [rotation, setRotation] = useState(0);
@@ -48,6 +62,8 @@ export default function GiveawayWheel({
   const [winner, setWinner] = useState(null);
 
   const timerRef = useRef(null);
+  const spinningRef = useRef(false);
+  const rotationRef = useRef(0);
 
   const entries = participants.filter(
     (person) =>
@@ -94,55 +110,49 @@ export default function GiveawayWheel({
   }, []);
 
   function spinWheel() {
-    if (isSpinning || totalTickets === 0) {
+    if (spinningRef.current || totalTickets === 0) {
       return;
     }
 
-    // Выбираем случайный билет:
-    // вероятность участника пропорциональна количеству билетов.
-    const selectedTicket = Math.floor(
-      Math.random() * totalTickets
-    );
+    spinningRef.current = true;
+    setIsSpinning(true);
+    setWinner(null);
 
-    let cumulativeTickets = 0;
-    let selectedSector = null;
+    // Сначала случайно определяем конечное положение колеса,
+    // а не имя победителя.
+    const targetAngle = Math.random() * 360;
 
-    for (const sector of sectors) {
-      cumulativeTickets += sector.tickets;
-
-      if (selectedTicket < cumulativeTickets) {
-        selectedSector = sector;
-        break;
-      }
-    }
-
-    if (!selectedSector) {
-      return;
-    }
-
-    // Центр выбранного сектора должен остановиться
-    // ровно напротив верхнего указателя.
-    const middleAngle =
-      (selectedSector.startAngle +
-        selectedSector.endAngle) /
-      2;
-
+    const currentRotation = rotationRef.current;
     const currentAngle =
-      ((rotation % 360) + 360) % 360;
+      ((currentRotation % 360) + 360) % 360;
 
+    // Сохраняем направление вращения и доворачиваем
+    // колесо до случайного конечного угла.
     const adjustment =
-      (360 - ((middleAngle + currentAngle) % 360)) % 360;
+      ((targetAngle - currentAngle) % 360 + 360) % 360;
+
+    // Случайное количество полных оборотов: от 6 до 12.
+    const extraSpins = 6 + Math.floor(Math.random() * 7);
 
     const nextRotation =
-      rotation + 360 * 8 + adjustment;
+    currentRotation + 360 * extraSpins + adjustment;
 
-    setWinner(null);
-    setIsSpinning(true);
+    // Сохраняем фактическое конечное положение.
+    rotationRef.current = nextRotation;
     setRotation(nextRotation);
 
+    // После завершения CSS-анимации определяем,
+    // чей сектор находится под верхним указателем.
     timerRef.current = setTimeout(() => {
-      setIsSpinning(false);
+      const selectedSector = getWinnerAtPointer(
+        sectors,
+        nextRotation
+      );
+
       setWinner(selectedSector);
+      setIsSpinning(false);
+      spinningRef.current = false;
+      timerRef.current = null;
     }, 8600);
   }
 
@@ -198,7 +208,7 @@ export default function GiveawayWheel({
                 ) : (
                   sectors.map((sector) => (
                     <path
-                      key={sector.id}
+                      key={sector.id ?? sector.index}
                       d={getSectorPath(
                         sector.startAngle,
                         sector.endAngle
@@ -210,17 +220,11 @@ export default function GiveawayWheel({
                   ))
                 )}
 
-                {/* Никнеймы участников внутри секторов */}
                 {sectors.map((sector) => {
                   const middleAngle =
-                    (sector.startAngle +
-                      sector.endAngle) /
-                    2;
+                    (sector.startAngle + sector.endAngle) / 2;
 
-                  const labelPoint = getPoint(
-                    middleAngle,
-                    92
-                  );
+                  const labelPoint = getPoint(middleAngle, 92);
 
                   const textRotation =
                     getReadableTextRotation(middleAngle);
@@ -244,7 +248,7 @@ export default function GiveawayWheel({
 
                   return (
                     <text
-                      key={`label-${sector.id}`}
+                      key={`label-${sector.id ?? sector.index}`}
                       x={labelPoint.x}
                       y={labelPoint.y}
                       textAnchor="middle"
@@ -274,7 +278,6 @@ export default function GiveawayWheel({
               />
             )}
 
-            {/* Центральная кнопка */}
             <circle
               cx="160"
               cy="160"
@@ -283,12 +286,10 @@ export default function GiveawayWheel({
               stroke="#737786"
               strokeWidth="3"
             />
-            
           </svg>
         </div>
       </div>
 
-            
       <div className="giveaway-wheel-footer">
         <div className="giveaway-wheel-stat">
           <span>Участников</span>
@@ -308,7 +309,7 @@ export default function GiveawayWheel({
         disabled={isSpinning || totalTickets === 0}
       >
         {isSpinning ? (
-          "Определяем победителя..."
+          "Колесо вращается..."
         ) : totalTickets === 0 ? (
           "Ожидаем участников"
         ) : (
@@ -322,12 +323,8 @@ export default function GiveawayWheel({
       {winner && (
         <div className="giveaway-winner">
           <span>ПОБЕДИТЕЛЬ РОЗЫГРЫША</span>
-
           <strong>{winner.name}</strong>
-
-          <p>
-            Количество билетов: {winner.tickets}
-          </p>
+          <p>Количество билетов: {winner.tickets}</p>
         </div>
       )}
 
