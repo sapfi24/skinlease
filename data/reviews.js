@@ -152,6 +152,15 @@ const reviews = [
     sourceLink: "https://www.avito.ru/brands/247c7058bc49b1408b1756cb7c189bfe/all?gdlkerfdnwq=101&page_from=from_item_card_icon&iid=8409621957&sellerId=2f180813839c82dd35cb70311f9444f2"
   },
 
+  {
+    id: 18,
+    name: "ddesu",
+    date: "Октябрь 2026",
+    text: "Замечательный продавец, быстро ответил, все рассказал и объяснил. Договорились на частичный возврат за мою отмену. Рекомендую, боятся не стоит",
+    source: "FunPay",
+    sourceLink: "https://funpay.com/users/3664170/"
+  },
+
 ];
 
 export default reviews;
