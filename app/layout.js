@@ -5,6 +5,9 @@ import CursorGlow from "../components/CursorGlow";
 
 export const metadata = {
   metadataBase: new URL("https://www.skin-lease.ru"),
+  icons: {
+  icon: "/favicon.ico",
+},
 
   title: "SkinLease — аренда скинов CS2",
 
