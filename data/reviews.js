@@ -179,6 +179,15 @@ const reviews = [
     sourceLink: "https://t.me/skinlease/6"
   },
 
+  {
+    id: 21,
+    name: "clouut",
+    date: "Октябрь 2026",
+    text: "всё четко, уважает русскую живопись",
+    source: "Avito",
+    sourceLink: "https://www.avito.ru/brands/247c7058bc49b1408b1756cb7c189bfe/all?gdlkerfdnwq=101&page_from=from_item_card_icon&iid=8409621957&sellerId=2f180813839c82dd35cb70311f9444f2"
+  },
+
 ];
 
 export default reviews;
