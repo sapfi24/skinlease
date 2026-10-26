@@ -21,13 +21,19 @@ const participants = [
     {
     id: "Артем Разйов",
     name: "neverdoto_",
-    tickets: 2,
+    tickets: 3,
     },
 
     {
     id: "Clouut",
     name: "addiction",
     tickets: 1,
+    },
+
+    {
+    id: "pinch",
+    name: "pinch",
+    tickets: 5,
     },
 
 ];
