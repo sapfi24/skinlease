@@ -219,8 +219,8 @@ const sets = [
   {
     slug: "doppler4",
     name: "Волнистое облако",
-    status: "available",
-    statusUntil: "24.10",
+    status: "tradeban",
+    statusUntil: "2.12",
     tag: "Идеальное сочетание",
     price: "5 200 ₽",
     moneyback: "2 200 ₽",
