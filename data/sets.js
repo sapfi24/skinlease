@@ -248,11 +248,11 @@ const sets = [
     slug: "mystic",
     name: "Мистический сет",
     tag: "С готовым инвентарём",
-    status: "rented",
+    status: "available",
     statusUntil: "26.10",
     price: "5 300 ₽",
     duration: "6 дней",
-    moneyback: "2 100 ₽",
+    moneyback: "2 000 ₽",
 
     description:
       "★ Butterfly Knife | Slaughter (Factory New) + ★ Sport Gloves | Occult (Field-Tested)",
@@ -367,7 +367,7 @@ const sets = [
     slug: "doppler3",
     name: "Кристаллический сет",
     tag: "Идеальное сочетание",
-    status: "tradeban",
+    status: "available",
     statusUntil: "27.10",
     price: "4 250 ₽",
     duration: "6 дней",
