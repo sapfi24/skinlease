@@ -27,13 +27,13 @@ function getParticipantColor(index) {
 
 // Данные главного приза
 const GIVEAWAY_PRIZE = {
-  name: "★ Paracord Knife",
+  name: "★ Нож выживания | Вороненая сталь",
   image: "/giveaway/prize.png",
-  steamPrice: "5350 ₽",
+  steamPrice: "6250 ₽",
 };
 
 const GIVEAWAY_TICKET_GOAL = 15;
-const GIVEAWAY_LIVE_DATE = "Дата будет объявлена";
+const GIVEAWAY_LIVE_DATE = "29 октября 2026, 12:00 МСК";
 
 export default function GiveawayPage() {
   const validParticipants = participants.filter(
