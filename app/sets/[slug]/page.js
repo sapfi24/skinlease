@@ -5,6 +5,15 @@ import sets from "../../../data/sets";
 import SetGallery from "../../../components/SetGallery";
 import ItemsList from "../../../components/ItemsList";
 
+// Создаём отдельную статическую страницу для каждого сета.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return sets.map((set) => ({
+    slug: set.slug,
+  }));
+}
+
 function getItemsText(count) {
   if (count % 10 === 1 && count % 100 !== 11) {
     return `${count} предмет`;
