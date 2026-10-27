@@ -36,6 +36,12 @@ const participants = [
     tickets: 5,
     },
 
+    {
+    id: "io",
+    name: "prizrak1lvl",
+    tickets: 2,
+    },
+
 ];
 
 export default participants;
