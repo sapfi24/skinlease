@@ -394,7 +394,7 @@ const sets = [
     name: "Фиолетовый сет",
     tag: "С дополнительными скинами",
     status: "rented",
-    statusUntil: "24.10",
+    statusUntil: "28.10",
     price: "4 250 ₽",
     duration: "6 дней",
     moneyback: "2 250 ₽",
