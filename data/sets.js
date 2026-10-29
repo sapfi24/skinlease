@@ -367,7 +367,7 @@ const sets = [
     slug: "doppler3",
     name: "Кристаллический сет",
     tag: "Идеальное сочетание",
-    status: "tradena",
+    status: "tradeban",
     statusUntil: "2.12",
     price: "4 250 ₽",
     duration: "6 дней",
