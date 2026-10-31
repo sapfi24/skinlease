@@ -39,7 +39,7 @@ export default function HowItWorks() {
             <h2>
               От выбора до игры
               <br />
-              всего несколько шагов.
+              всего несколько шагов
             </h2>
           </div>
 
