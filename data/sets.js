@@ -136,11 +136,11 @@ const sets = [
     slug: "darkblue",
     name: "Тёмно-синий сет",
     tag: "С дополнительными скинами",
-    statusUntil: "30.10",
-    status: "tradeban",
+    statusUntil: "5.11",
+    status: "rented",
     price: "2 850 ₽",
     duration: "6 дней",
-    moneyback: "1 750 ₽",
+    moneyback: "1 600 ₽",
 
     description:
       "★ Скелетный нож | Вороненая сталь (Minimal Wear) + ★ Перчатки спецназа | Полевой агент (Field-Tested)",

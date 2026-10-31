@@ -12376,3 +12376,24 @@ a {
     transform: none;
   }
 }
+
+
+/* Показываем дату при наведении на всю карточку */
+@media (hover: hover) and (pointer: fine) {
+  .hud-set-card:hover .status-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+/* Показываем дату, когда карточка находится
+   около центра экрана телефона */
+@media (max-width: 768px) {
+  .hud-set-card.is-centered .status-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+

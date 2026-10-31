@@ -1,5 +1,7 @@
+
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 
 const monthNames = {
   "01": "января",
@@ -51,7 +53,7 @@ function formatStatusUntil(value) {
 
   const trimmedValue = value.trim();
 
-  // Если указана дата: 27.10, 01.10, 5.09 и т.д.
+  // Формат даты: 27.10, 01.11, 5.09 и т.д.
   const dateMatch = trimmedValue.match(
     /^(\d{1,2})\.(\d{1,2})$/
   );
@@ -67,12 +69,14 @@ function formatStatusUntil(value) {
     }
   }
 
-  // Если указано любое другое значение —
-  // выводим его полностью как есть
   return trimmedValue;
 }
 
 export default function SetCard({ set, index }) {
+  const cardRef = useRef(null);
+
+  const [isCentered, setIsCentered] = useState(false);
+
   const image = set.images?.[0];
   const moneyback = set.moneyback || "1 500 ₽";
 
@@ -81,12 +85,92 @@ export default function SetCard({ set, index }) {
   );
 
   const hasStatusTooltip =
-    set.status !== "available" && statusTooltip;
+    set.status !== "available" && Boolean(statusTooltip);
+
+  // На телефоне отслеживаем положение карточки
+  // относительно центра экрана.
+  useEffect(() => {
+    const card = cardRef.current;
+
+    if (!card || !hasStatusTooltip) {
+      setIsCentered(false);
+      return;
+    }
+
+    let animationFrame = null;
+
+    const updateCardPosition = () => {
+      if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
+      }
+
+      animationFrame = requestAnimationFrame(() => {
+        const isMobile = window.matchMedia(
+          "(max-width: 768px)"
+        ).matches;
+
+        if (!isMobile) {
+          setIsCentered(false);
+          return;
+        }
+
+        const rect = card.getBoundingClientRect();
+
+        const cardCenter = rect.top + rect.height / 2;
+        const screenCenter = window.innerHeight / 2;
+
+        // Зона активации вокруг центра экрана.
+        const tolerance = Math.max(
+          45,
+          Math.min(90, window.innerHeight * 0.1)
+        );
+
+        const centered =
+          Math.abs(cardCenter - screenCenter) <= tolerance;
+
+        setIsCentered((previous) =>
+          previous === centered ? previous : centered
+        );
+      });
+    };
+
+    updateCardPosition();
+
+    window.addEventListener(
+      "scroll",
+      updateCardPosition,
+      { passive: true }
+    );
+
+    window.addEventListener(
+      "resize",
+      updateCardPosition
+    );
+
+    return () => {
+      window.removeEventListener(
+        "scroll",
+        updateCardPosition
+      );
+
+      window.removeEventListener(
+        "resize",
+        updateCardPosition
+      );
+
+      if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [hasStatusTooltip]);
 
   return (
     <a
-  href={`/sets/${set.slug}`}
-  className="hud-set-card"
+      ref={cardRef}
+      href={`/sets/${set.slug}`}
+      className={`hud-set-card ${
+        isCentered ? "is-centered" : ""
+      }`}
     >
       {/* ФОТО И ИНФОРМАЦИЯ */}
       <div
@@ -101,19 +185,13 @@ export default function SetCard({ set, index }) {
       >
         <div className="hud-image-overlay" />
 
-        {/* Верхняя информация */}
+        {/* ВЕРХНЯЯ ИНФОРМАЦИЯ */}
         <div className="hud-top">
           <span className="hud-number">
             {String(index + 1).padStart(2, "0")}
           </span>
 
-          <span
-            className={`hud-status-wrap ${
-              hasStatusTooltip
-                ? "has-status-tooltip"
-                : ""
-            }`}
-          >
+          <span className="hud-status-wrap">
             <span
               className={`hud-status ${getStatusClass(
                 set.status
@@ -133,14 +211,17 @@ export default function SetCard({ set, index }) {
             </span>
 
             {hasStatusTooltip && (
-              <span className="status-tooltip">
+              <span
+                className="status-tooltip"
+                aria-label={statusTooltip}
+              >
                 {statusTooltip}
               </span>
             )}
           </span>
         </div>
 
-        {/* Нижняя информация НА ФОТО */}
+        {/* НИЖНЯЯ ИНФОРМАЦИЯ НА ФОТО */}
         <div className="hud-card-info">
           <div className="hud-title-row">
             <div>
