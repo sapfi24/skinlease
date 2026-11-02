@@ -188,6 +188,34 @@ const reviews = [
     sourceLink: "https://www.avito.ru/brands/247c7058bc49b1408b1756cb7c189bfe/all?gdlkerfdnwq=101&page_from=from_item_card_icon&iid=8409621957&sellerId=2f180813839c82dd35cb70311f9444f2"
   },
 
+
+  {
+    id: 22,
+    name: "Kacarb",
+    date: "Октябрь 2026",
+    text: "топ братик",
+    source: "FunPay",
+    sourceLink: "https://funpay.com/users/3664170/"
+  },
+
+  {
+    id: 23,
+    name: "heerOo",
+    date: "Октябрь 2026",
+    text: "<3 спасибо братуха , все четко быстро и по вкусной цене",
+    source: "FunPay",
+    sourceLink: "https://funpay.com/users/3664170/"
+  },
+
+  {
+    id: 24,
+    name: "kaksergvf",
+    date: "Октябрь 2026",
+    text: "Продавец очень хороший, все расскажет, все покажет, и очень дёшево у него на самом деле, советую",
+    source: "FunPay",
+    sourceLink: "https://funpay.com/users/3664170/"
+  },
+
 ];
 
 export default reviews;
