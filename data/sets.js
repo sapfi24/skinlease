@@ -40,9 +40,9 @@ const sets = [
     tag: "Универсальное сочетание",
     status: "available",
     statusUntil: "2.11",
-    price: "4 250 ₽",
+    price: "4 000 ₽",
     duration: "6 дней",
-    moneyback: "2 250 ₽",
+    moneyback: "2 200 ₽",
 
     description:
       "★ Штык-нож М9 | Зуб тигра (Factory New) + ★ Спортивные перчатки | Омега (Field-Tested)",
