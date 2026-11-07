@@ -367,7 +367,7 @@ const sets = [
     slug: "doppler3",
     name: "Кристаллический сет",
     tag: "Идеальное сочетание",
-    status: "rented",
+    status: "available",
     statusUntil: "8.11",
     price: "4 250 ₽",
     duration: "6 дней",
