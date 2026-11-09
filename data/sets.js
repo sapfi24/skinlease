@@ -38,7 +38,7 @@ const sets = [
     slug: "omega",
     name: "Омега сет",
     tag: "Универсальное сочетание",
-    status: "rented",
+    status: "available",
     statusUntil: "11.11",
     price: "4 000 ₽",
     duration: "6 дней",
