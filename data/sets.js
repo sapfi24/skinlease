@@ -66,11 +66,11 @@ const sets = [
     slug: "blue",
     name: "Синий сет",
     tag: "С готовым инвентарём",
-    status: "tradeban",
+    status: "available",
     statusUntil: "11.11",
-    price: "4 500 ₽",
+    price: "5 150 ₽",
     duration: "6 дней",
-    moneyback: "2 500 ₽",
+    moneyback: "3 150 ₽",
 
     description:
       "★ Нож-бабочка | Чистая вода (MW) + ★ Мотоциклетные перчатки | Полигон (FT)",
