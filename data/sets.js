@@ -172,7 +172,7 @@ const sets = [
     name: "Чёрно-белый сет",
     tag: "Готовый инвентарь",
     status: "rented",
-    statusUntil: "14.11",
+    statusUntil: "19.11",
     price: "4 500 ₽",
     duration: "6 дней",
     moneyback: "3 000 ₽",
