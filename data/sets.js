@@ -137,7 +137,7 @@ const sets = [
     name: "Тёмно-синий сет",
     tag: "С дополнительными скинами",
     statusUntil: "6.11",
-    status: "available",
+    status: "rented",
     price: "2 850 ₽",
     duration: "6 дней",
     moneyback: "1 600 ₽",
