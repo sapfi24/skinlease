@@ -368,7 +368,7 @@ const sets = [
     name: "Кристаллический сет",
     tag: "Идеальное сочетание",
     status: "rented",
-    statusUntil: "17.11",
+    statusUntil: "17.12",
     price: "4 250 ₽",
     duration: "6 дней",
     moneyback: "2 250 ₽",
