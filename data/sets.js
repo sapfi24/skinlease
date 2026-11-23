@@ -319,7 +319,7 @@ const sets = [
     slug: "tiger",
     name: "Тигриный сет",
     tag: "Готовый инвентарь",
-    status: "tradeban",
+    status: "available",
     statusUntil: "24.11",
     price: "2 850 ₽",
     duration: "6 дней",
@@ -425,3 +425,4 @@ const sets = [
 ];
 
 export default sets;
+
