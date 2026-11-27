@@ -108,7 +108,7 @@ const sets = [
   {
     slug: "snow",
     name: "Снежный сет",
-    status: "tradeban",
+    status: "available",
     statusUntil: "27.11",
     tag: "Идеально чистый",
     price: "3 200 ₽",
