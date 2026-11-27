@@ -9,7 +9,7 @@ const sets = [
   slug: "pink",
   name: "Неоново-розовый сет",
   tag: "Идеально для снайпера",
-  status: "tradeban",
+  status: "available",
   statusUntil: "28.11",
   price: "3 850 ₽",
   duration: "6 дней",
